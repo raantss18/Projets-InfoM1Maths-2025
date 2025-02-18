@@ -1,7 +1,7 @@
-# Exercices et Projets M1 Informatique
+# Projets M1 MAFI et Mathématiques et structures de l'Université d'Antananarivo
 
 Bienvenue dans ce dépôt GitHub dédié aux travaux d’informatique des étudiants de M1.  
-L’objectif est de proposer, pour chaque chapitre, des exercices et/ou des projets (individuels ou en groupe).
+L’objectif est de proposer, pour chaque chapitre des projets (individuels ou en groupe).
 
 ---
 
@@ -9,7 +9,6 @@ L’objectif est de proposer, pour chaque chapitre, des exercices et/ou des proj
 
 Chaque **chapitre** est un dossier distinct. À l’intérieur, vous trouverez :
 
-- **exercices/** : contient des exercices courts ou moyens.
 - **projets/** : regroupe des projets plus longs, individuels ou en groupe.
 
 
