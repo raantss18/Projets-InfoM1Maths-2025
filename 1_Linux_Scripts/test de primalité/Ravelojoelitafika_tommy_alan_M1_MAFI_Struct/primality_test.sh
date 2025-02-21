@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# le code s'execute avec des erreurs et ne donne pas le résultat voulu. A revoir
+
 # Fonction pour demander et lire le nombre
 echo "Entrez un nombre entier : "
 read nombre

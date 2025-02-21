@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#A revoir car cela ne marche pas
+
 # Fonction pour calculer le PGCD en utilisant l>
 pgcd() {
     local a=$1

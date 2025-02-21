@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Le code marche bien mais est-il necessaire de voir 1 dans la factorisation?
+
 echo "          *****************"
 echo "          * FACTORISATION *"
 echo "          *****************"

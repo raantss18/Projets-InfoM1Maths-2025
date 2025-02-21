@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# A revoir, le code s'execute avec erreur et ne donne pas le résultat attendu.
+
 primality_of() {
     local n=$1
 
