@@ -2,7 +2,7 @@
 
 # le code s'execute avec des erreurs et ne donne pas le résultat voulu. A revoir
 
-# le code présenter des erreurs à cause des commandes bc
+# le code précedant semble présenter des erreurs à cause des commandes bc
 
 #arpes quelques recherches j'ai pu trouver des alternatives à cette commande tout en conservant la structure de l'algorithme 
 
