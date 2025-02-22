@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Le code marche bien mais le temps d'execution ne s'affiche pas
 echo ""
 echo "---------------------------------"
 echo "Table de Multiplication Modulaire"
