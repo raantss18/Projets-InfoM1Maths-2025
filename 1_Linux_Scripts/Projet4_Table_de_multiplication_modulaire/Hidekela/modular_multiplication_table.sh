@@ -9,6 +9,8 @@ echo ""
 read -p "Entrer un nombre entier n: " n
 read -p "Entrer le nombre module m: " m
 
+timestart=$(date +%s%N)
+
 echo ""
 echo "Voici la table de multiplication $n mod $m:"
 echo ""
@@ -17,3 +19,10 @@ for (( i=1; i<=10; i++))
 do
 	echo "($n x $i) mod $m = $(( (n*i)%m ))"
 done
+
+timeend=$(date +%s%N)
+
+echo ""
+executiontime=$((timeend - timestart))
+echo "Temps écoulé: $executiontime nanosecondes"
+
