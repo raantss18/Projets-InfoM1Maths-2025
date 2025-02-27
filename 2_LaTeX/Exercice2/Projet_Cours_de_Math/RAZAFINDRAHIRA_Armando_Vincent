@@ -1,0 +1,387 @@
+\documentclass[a4paper, 12pt]{report}
+\usepackage{lmodern}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{enumitem, pifont}
+\usepackage{array}
+
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{tkz-tab}
+\setcounter{secnumdepth}{5}
+
+\usepackage{amsthm}
+\newtheorem{theoreme}{Théorème}[section]
+\newtheorem{definition}{Définition}[section]
+\newtheorem{propriete}{Propriété}[section]
+\newtheorem{exemple}{Exemple}[section]
+
+\usepackage[hyphens]{url}
+\usepackage[left =3cm, right=2cm, top=3cm, bottom=2cm]{geometry}
+\usepackage[]{setspace}
+
+\author{\textbf{\emph{ARMANDO VINCENT} RAZAFINDRAHIRA}}
+\title{\textbf{MATHEMATIQUE TERMINALE A}}
+
+
+
+
+
+
+\begin{document}
+
+
+\everymath{\displaystyle}
+
+\maketitle
+
+\tableofcontents
+
+\setcounter{page}{2}
+
+
+
+
+
+\chapter{\begin{center}\textit{SUITE NUMERIQUE}\end{center}}
+    \section{GENERALITE}
+    \begin{definition}
+        On appelle suite numérique toute fonction $U$ définie sur $\mathbb{N}$ (ou une partie $E$ de $\mathbb{N}$) à valeur dans $\mathbb{R}$.\\
+        On note:
+        $\begin{array}{rcl}
+            U :  E & \to  & \mathbb{R}\\ 
+                n  & \to  & U(n)       
+        \end{array} $\\ 
+        $U(n)$ est la notation fonctionnelle et $U_n$ la notation indicielle. \\
+        L'expression $(U_n)_n$ est appélée la suite de terme générale $U_n$.  
+        On dit alors que $U_n$ est le $n$-{ième} terme de la suite.
+        \begin{itemize}
+            \item Si le terme générale d'une suite est en foncton de $n$, on dit que $(U_n)_n$ est définie par une formule explicite.
+            \begin{exemple}
+                La suite de terme générale $U_n=2n+3$ est définie par une formule explicite.
+            \end{exemple}
+            \item Si l'une des termes de la suite est connue et chaque terme est en fonction du terme qui lui précède, on dit que $(U_n)_n$ est définie 
+            par une rélation de récurrence.
+            \begin{exemple}
+                La suite $(U_n)_{n\in \mathbb{N}}$ définie par $U_0=2$ et $U_{n+1}=3U_n+1$ est définie par une rélation de récurrence.
+            \end{exemple}
+        \end{itemize}
+    \end{definition}
+    \begin{theoreme} \textbf{Sens de variation d'une suite numérique}
+        \begin{itemize}
+            \item Une suite numérique $(U_n)$ est croissante (resp. strictement croissante) si et seulement si $U_{n+1}-U_n\geq 0$ (rep. $U_{n+1}-U_n>0$).
+            \item Une suite numérique $(U_n)$ est décroissante (resp. strictement décroissante) si et seulement si $U_{n+1}-U_n\leq 0$ (rep. $U_{n+1}-U_n<0$).
+            \item Une suite numérique $(U_n)$ est constante (ou stationnaire) si et seulement si $U_{n+1}=~U_n$ pour tout $ n\in\mathbb{N}$.
+        \end{itemize}
+    \end{theoreme}
+    \begin{theoreme} \textbf{Convergence d'une suite numérique}
+        \begin{itemize}
+            \item Une suite $(U_n)$ est convergente s'il existe un nombre réel $l$ $(l\in\mathbb{R})$ tel que $\lim_{n \to +\infty}U_n=~l$. La limite d'une suite 
+            convergente est unique.
+            \item Une suite qui n'est pas convergente est dite divergente. Dans ce cas, sa limite est infini ou elle n'admet pas de limite.
+        \end{itemize}
+    \end{theoreme}
+
+    \section{\textit{SUITE ARITHMETIQUE}}
+        \begin{definition}
+            Une suite $(U_n)_{n\in\mathbb{N}}$ est \textbf{arithmétique} s'il existe un nombre réel \textbf{r} $(r~\in~\mathbb{R})$ tel que:   
+            $U_{n+1}=U_n+r$.\\ On dit alors que le réel $r$ est la \textbf{raison} de la suite.
+        \end{definition}
+        \begin{exemple}
+            La suite de nombre pair: $U_n=\times n$ est une suite arithmétique.\\ 
+            En effet, on a $U_{n+1}=2\times (n+1)=2\times n+2\times 1=U_n+2$. Et la suite est de raison $r=2$.
+        \end{exemple}
+        \begin{propriete} Pour une suite arithmétique $(U_n)_n$, on a les propriétés suivantes:
+            \begin{itemize}
+                \item La différence de deux termes consécutifs (succéssifs) d'une suite arithmétique est une constante: $U_{n+1}-U_n=r$;
+                \item Pour tout entier naturel $n$ et $k$, on a: $U_n=U_k+(n-k)\times r$. En particulier, pour $k=0$, $U_n=U_0+n\times r$;
+                \item Formule explicite ou expression de $U_n$ en fonction de $n$:
+                $U_n=U_k+(n-k)\times r$ pour tout $n,k\in\mathbb{N}$. En particulier, pour $k=0$, $U_n=U_0+n\times r$.
+                \begin{exemple}
+                    $(U_n)_n$ est une suite arithmétique telle que le premier terme est $U_0=5$ et de raison $r=3$. Alors l'expression de 
+                    $U_n$ en fonction de $n$ est $U_n=U_0+(n-0)\times 3=5+n\times 3=5+3n$.
+                \end{exemple}
+                \item Somme de termes consécutifs d'une suite arithmétique:
+                \begin{center}
+                    $S_n=U_k+U_{k+1}+\cdots+U_n$ avec $k\leq n$, alors on a:
+                    $S_n= \cfrac{\text{N}}{2} \times (U_k+U_n)$
+                \end{center} 
+            \end{itemize}  
+            avec N = Nombre de termes = indice du dernier terme de la somme - indice du premier terme de la somme + 1.\\
+            $U_k$ est le premier terme de la somme et $U_n$ est le dernier terme de la suite.\\ 
+            Donc N = $n-k+1$.
+            \begin{exemple}
+                Considerons la suite arithmétique de premier terme $U_0=3$ et de raison $r=4$. Alors $U_n=3+4n$.
+                Calculons la somme $S_{10}=U_0+U_1+U_{10}$. $U_{10}=3+4\times 10=3+40=43$. \\ 
+                $S_{10}=\cfrac{10-0+1}{2}(U_0+U_{10})=\cfrac{11}{2}(3+43)=286$.
+            \end{exemple}
+
+\textbf{Exemple:} Déterminer l'expression d'une suite arithmétique de raison $r=2$ et du cinquième terme $U_4=1$.
+        \end{propriete}
+        \begin{propriete}  \textbf{Sens de variation d'une suite arithmétique:}
+            \begin{itemize}
+                \item Toute suite arithmétique de raison $r>0$ est \textbf{coissante}.
+                \item Toute suite arithmétique de raison $r<0$ est \textbf{décoissante}.
+                \item Toute suite arithmétique de raison $r=0$ est dite \textbf{stationnaire ou constante}.
+            \end{itemize}
+        \end{propriete}
+        \begin{theoreme}
+            \textbf{Convergence d'une suite arithmétique:}
+            \begin{itemize}
+                \item Si la raison r d'une suite arithmétique est non nulle $(r\neq 0)$ alors la suite est \textbf{divergente}.
+                \item Si la raison r d'une suite arithmétique est nulle $(r= 0)$ alors la suite est \textbf{convergente}.
+            \end{itemize}
+        \end{theoreme}
+    \section{\textit{SUITE GEOMETRIQUE}}
+        \begin{definition}
+            Soit $(U_n)_n$ une suie numérique. On dit que $(U_n)_n$ est une suite géometrique s'il existe un nombre réel $q$ tel que:
+            pour tout $n\in E$, on a: \textbf{$U_{n+1}=qU_n$}.\\ 
+            On dit alors que le nombre réel $q$ est la raison de la suite géometrique $(U_n)_n$.
+        \end{definition}
+        \begin{exemple}
+            La suite des puissances de 2 est une suite géométrique: $U_n=2^n$, donc $U_{n+1}=2^{n+1}=2^n\times 2$; donc $U_{n+1}=2U_n$.\\ 
+            La suite des puissances de 2 est une suite géométrique de raison $q=2$.
+        \end{exemple}
+        \begin{propriete}
+            Pour une suite géométrique, on a les propriétés suivantes:
+            \begin{itemize}
+                \item Pour tout entier naturel $n$ et $k$, on a: $U_n=U_k\times q^{n-k}$. En particulier, pour $k=0$, $U_n=U_0\times q^n$.
+                \item Formule explicite ou expression de $U_n$ en fonction de $n$:
+                $U_n=U_k \times q^{n-k}$ pour tout $n,k\in\mathbb{N}$. En particulier, pour $k=0$, on a: $U_n=U_0\times q^n$.
+                \begin{exemple}
+                    $(U_n)_n$ est une suite géométrique de premier terme $U_0=3$ et de raison $q=\cfrac{1}{2}$. Alors l'expression de $U_n$ en 
+                     fonction de $n$ est $U_n=3\times \left(\cfrac{1}{2}\right)^n$
+                \end{exemple}
+                \item Somme des termes consécutifs d'une suite géométrique:
+                    \begin{center}
+                        $S_n=U_k+U_{k+1}+\cdots+U_n$ avec $k\leq n$, alors on a: \\
+                        $S_n=U_k \times \cfrac{1-q^{n-k+1}}{1-q}$ avec $q \neq 1$.
+                    \end{center}
+                \begin{exemple}
+                    Considerons la suite géométrique $(U_n)_n$ de premier terme $U_0=2$ et de raison $q=\cfrac{3}{4}$. 
+                    Calculons $S_{49}=U_0+U_1+\cdots+U_{49}$.\\ 
+                    Nombre de termes: $N=49-0+1=50$; \\ 
+                    On a donc $S_{49}=2\times \cfrac{1-\left(\cfrac{3}{4}\right)^{50}}{1-\cfrac{3}{4}}=8\left[1-\left(\cfrac{3}{4}\right)^{50}\right]$
+                \end{exemple}
+            \end{itemize}
+        \end{propriete}
+        \begin{theoreme} \textbf{Sens de variation d'une suite géométrique}
+            \begin{itemize}
+                \item Si la raison $q$ d'une suite géométrique $(U_n)_n$ est strictement positif $(q>0)$ alors:
+                \begin{itemize}
+                    \item la suite est croissante si et seulement si $q>1$.
+                    \item la suite est décroissante si et seulement si $q<1$.
+                    \item la suite est constante (ou stationnaire) si et seulement $q=1$.
+                \end{itemize}
+                \item Si la raison $q$ d'une suie géométrique $(U_n)_n$ est strictement négatif $(q<0)$, on dit que la suite est alternée 
+                n'est ni croissante ni décroissante.
+            \end{itemize}
+        \end{theoreme}
+        \begin{theoreme} \textbf{Convergence d'une suite géometrique}
+            \begin{itemize}
+                \item Une suite géométrique $(U_n)_n$ est convergente si et seulement si $|q|<1$ $(-1<q<1)$.
+                \item Si $q=1$, la suite est convergente et sa limite est $U_0$ $\left(\lim_{n \to +\infty}U_n=U_0\right)$ car la suite est constante.
+                \item Si $q\leq -1$, la suite est divergente et la suite n'admet pas de limite.
+                \item Si $q>1$, la suite est divergente et sa limite est $+\infty$ $\left(\lim_{n \to +\infty}U_n=+\infty\right)$
+            \end{itemize} 
+        \end{theoreme}
+    \chapter{\begin{center}\textit{FONCTION NUMERIQUE D'UNE VARIABLE R\'EELLE}\end{center}}
+        \section{GENERALITE}
+            \subsection{Domaine de définition d'une fonction numérique}
+            \begin{definition}
+                Soient $E$ et $F$ deux ensemble de nombre non vide. Soit $f$ une fonction de $E$ dans $F$.\\ 
+                On appelle domaine (ou ensemble) de définition de $f$ l'ensemble des valeurs de $E$ ayant une image dans $F$ par $f$.\\ 
+                On le note $D_f$. On a alors $D_f=\{x\in E \text{ tel que } f(x) \text{ existe et } \{f(x)\}\in F \}$.\\ 
+                $x$ élément de l'ensemble de départ tel que $f(x)$ appartienne à l'ensemble d'arrivée.
+            \end{definition}
+            \subsection{Recherche du domaine de definition de quelques types de fonctions}
+            Soient $f$ et $g$ deux fonctions polynômes, c'est-à-dire de la forme $a_nx^n+a_{n-1}x^{n-1}+~\cdots+~a_1x+~a_0$, et $h$ la 
+            fonction de $\mathbb{R}$ dans $\mathbb{R}$.
+            \begin{itemize}
+                \item Toute fonction polynôme est définie sur $\mathbb{R}$, \textbf{$\mathbb{R}=]-\infty,+\infty[$}.
+                \item La fonction rationnelle $h(x)=\cfrac{f(x)}{g(x)}$ est définie pour l'ensemble des valeurs de $x$ telles que $g(x)$ soit différent 
+                de zéro $(g(x)\neq 0)$. \textbf{$D_h=\{x\in\mathbb{R} \text{ tel que }g(x)\neq 0\}$}.
+                \item La fonction irrationnelle $h(x)=\sqrt{f(x)}$ est définie pour l'ensemble des réels $x$ tel $f(x)$ soit supérieure ou égal 
+                à zéro $(f(x)\geq 0)$. \textbf{$D_h=\{x\in\mathbb{R} \text{ tel que } f(x)\geq 0\}$}.
+                \item La fonction $h(x)=\cfrac{f(x)}{\sqrt{g(x)}}$ est définie pour l'ensemble des valeurs de $x$ tel que $g(x)$ soit 
+                strictement supérieure à zéro $(g(x)>0)$.  \textbf{$D_h=\{x\in\mathbb{R} \text{ tel que } g(x)>0\}$}.
+                \item La fonction $h(x)=\cfrac{\sqrt{f(x)}}{{g(x)}}$ est définie pour l'ensemble des valeurs de $x$ tel que $f(x)$ soit supérieure 
+                ou égal à zéro et $g(x)$ différent de zéro $(f(x)\geq 0\text{ et }g(x)\neq 0)$. \textbf{$D_h=\{x\in\mathbb{R}\text{ tel que }f(x)\geq 0 \text{ et }g(x)\neq 0\}$}
+                \item La fonction $h(x)=\sqrt{\cfrac{f(x)}{g(x)}}$ est définie pour l'ensemble des valeurs de $x$ tel que $\cfrac{f(x)}{g(x)}$ soit supérieure 
+                ou égal à zéro $\left(\cfrac{f(x)}{g(x)}\geq 0\right)$ et $g(x)$ différent de zéro $(g(x)\neq 0)$. 
+                $D_h=\{x\in\mathbb{R} \text{ | } \cfrac{f(x)}{g(x)}\geq 0 \text{ et }g(x)\neq 0\}$
+            \end{itemize}
+            \subsection{Parité d'une fonction}
+                \subsubsection{Fonction Paire}
+                Soit $f$ une fonction numérique définie sur $D_f$.\\ 
+                La fonction $f$ est dite paire si et seulement si pour tout $x\in D_f$, $-x\in D_f$ et \\ 
+                $f(x)=f(-x)$. C'est-à-dire, la droite d'équation $x=0$ (l'axe des ordonnées) est un axe de symétrie de la courbe de $f$ (voir \ref{paire}).
+                \begin{exemple}
+                    On donne la fonction $f$ définie sur $D_f=\mathbb{R}$ par: $f(x)=-x^2+5$. On a donc $x\in D_f$, $-x\in D_f$ et \\ 
+                    $f(-x)=-(-x)^2+5=-x^2+5$. Alors $f(x)=f(-x)$. \\ 
+                    Ainsi, la fonction $f$ est une fonction \textbf{paire}. 
+                \end{exemple}
+                \subsubsection{Fonction impaire}
+                Soit $f$ une fonction numérique définie sur $D_f$.\\ 
+                La fonction $f$ est dite impaire si et seulement si pour tout $x\in D_f$, $-x\in D_f$ et \\ 
+                $f(-x)=-f(x)$. C'est-à-dire, l'origine $O(0;0)$ du repère est un centre de symétrie de la courbe de $f$ (voir \ref{impaire}).
+                \begin{exemple}
+                    Soit $f$ la fonction numérique définie sur $D_f=]-\infty,0[ \cup ]0,+\infty[$ par: $f(x)=\cfrac{3}{x}$. 
+                    On a alors $x\in D_f$, $-x\in D_f$ et $f(-x)=\cfrac{3}{-x}=\cfrac{-3}{x}=-\cfrac{3}{x}$.\\ 
+                    Donc $f(-x)=-f(x)$.\\ 
+                    Ainsi $f$ est une fonction \textbf{impaire}.
+                \end{exemple}
+                
+                \textbf{Remarque: } Une fonction numérique $f$ peut être\textbf{ ni paire ni impaire}.
+            \subsection{Element de symétrie}
+                \subsubsection{Axe de symétrie} \label{paire}
+                Le repère $(O,\vec{i},\vec{j})$ est orthogonal.\\ 
+                Soit $f$ une fonction numérique et $(\mathcal{C}_f)$ sa courbe représentative dans le repère $(O,\vec{i},\vec{j})$. 
+                Pour demontrer que la droite $(\Delta)$ d'équation $x=a$ est un axe de symétrie de $(\mathcal{C}_f)$, on peut 
+                vérifier que pour tout nombre réel $h$ tel que $(a+h)\in D_f$, on a: $(a-h)\in D_f$ et $f(a+h)=f(a-h)$ où 
+                $D_f$ est l'ensemble de définition de $f$.
+                    \begin{exemple}
+                        Soit $f$ la fonction numérique definie sur $D_f=\mathbb{R}$ par:\\ 
+                         $f(x)=-2x^2+4x+3$. On note par $(\mathcal{C}_f)$ Sa courbe représentative. \\ 
+                        Montrons que la droite d'équation $x=1$ est un axe de symétrie de $(\mathcal{C}_f)$.\\
+                        On a bien $(1+h)\in D_f$ et $(1-h)\in D_f$. On a aussi $f(1+h)=-2(1+h)^2+4(1+h)+3$. \\ 
+                        Donc $f(1+h)=-2(1+2h+h^2)+4+4h+3=-h^2+5$.\\ 
+                        Et $f(1-h)=-2(1-h)^2+4(1-h)+3=-2(1-2h+h^2)+4-4h+3=-2h^2+5$.\\
+                        Alors $f(1+h)=f(1-h)$.\\ 
+                        D'où la droite d'équation $x=1$ est un axe de symétrie de $(\mathcal{C}_f)$.\\
+                    \end{exemple}
+                \subsubsection{Centre de symétrie} \label{impaire}
+                Soit $g$ une fonction numérique et $(\mathcal{C}_g)$ sa courbe représentative.\\ 
+                Le point $\Omega (a,b)$ est un centre de symétrie de $(\mathcal{C}_g)$ si et seulement si pour tout $h\in \mathbb{R}$, 
+                $(a+h)\in D_g$, on a: $(a-h)\in D_g$ et $g(a+h)+g(a-h)=2\times b=2b$ où $D_g$ est le domaine de 
+                définition de $g$.
+                    \begin{exemple}
+                        Soit $g$ la fonction numérique définie sur $D_g=]-\infty,2[\cup]2,+\infty[$ par: $g(x)=x-1+\cfrac{5}{x-2}$.
+                        On désigne par $(\mathcal{C}_g)$ sa courbe représentative. \\ 
+                        Montrons que le point $A(2;1)$ est un centre de symétrie pour la courbe $(\mathcal{C}_g)$.\\ 
+                        Soit $h\in \mathbb{R}$ tel que $(2+h)\in D_g$. C'est-à-dire $h\neq 0$. \\ 
+                        On a donc $(2-h)\in D_g$, car $2-h \neq 2$.\\ 
+                        Alors $g(2+h)=2+h-1+\cfrac{5}{2+h-2}=1+h+\cfrac{5}{h}$ et \\ 
+                        $g(2-h)=2-h-1+\cfrac{5}{2-h-2}=1-h+\cfrac{5}{-h}=1-h-\cfrac{5}{h}$.\\
+                        Donc $g(2+h)+g(2-h)=1+h+\cfrac{5}{h}+1-h-\cfrac{5}{h}=2=2\times 1$.\\
+                        D'où le point $A(2;1)$ est un centre de symétrie de $(\mathcal{C}_g)$.
+                    \end{exemple}
+                %\subsection{Point d'infléxion}
+
+            \subsection{Limite d'une fonction}
+                \subsubsection{Limite finie en un point d'abscisse $x_0$}
+                Considerons une fonction numérique $f$ dont le domaine de définition est $D_f$.\\ 
+                Soient $x_0$ et $l$ deux nombre réels.\\ 
+                $f$ admet $l$ comme limite en $x_0$ si et seulement si $f(x_0)=l$.
+                \subsubsection{Limite finie à gauche et à droite en un point d'abscisse $x_0$}
+                    \begin{itemize}
+                        \item $f$ admet une limite $l$ à gauche de $x_0$ $(x_0\not\in D_f)$ si et seulement si $\lim_{x\to x_0^- }f(x)=l$ $(x<x_0)$.
+                        \item $f$ admet une limite $l$ à droite de $x_0$ $(x_0\not\in D_f)$ si et seulement si $\lim_{x\to x_0^+ }f(x)=l$ $(x>x_0)$.
+                    \end{itemize}
+                \subsubsection{Opération de la limite sur les fonction}
+                    \underline{\textbf{Limite de la somme de deux fonctions}}
+
+                   $\begin{array}{|c|c|c|c|c|c|c|}
+                        \hline
+                        \lim_{x\to x_0}f(x)  &  l  & +\infty & -\infty & +\infty & -\infty & +\infty \\ \hline
+                        \lim_{x\to x_0}g(x)  &  k  &    k    &   k     & +\infty & -\infty & -\infty \\ \hline
+                \lim_{x_0\to x_0}[f(x)+g(x)] & l+k & +\infty & -\infty & +\infty & -\infty & \text{ F.I }  \\ \hline   
+
+                    \end{array}$\\
+
+                    Avec $l$ et $k$ sont des réels (finies).\\
+                    F.I: forme indéterminée\\
+
+                    \underline{\textbf{Limite du produit de deux fonctions}}
+
+
+                   $\begin{array}{|c|c|c|c|c|c|c|}
+                    \hline
+                    \lim_{x\to x_0}f(x)  &     l     &      +\infty      &      -\infty      & +\infty & -\infty & +\infty \\ \hline
+                    \lim_{x\to x_0}g(x)  &     k     &      k\neq 0      &      k\neq 0      & +\infty & -\infty & -\infty \\ \hline
+    \lim_{x_0\to x_0}[f(x)\times g(x)]   & l\times k & k\times (+\infty) & k\times (-\infty) & +\infty & +\infty & -\infty \\ \hline              
+                \end{array}$ \\ 
+
+                    $k\times (+\infty)$ et $k\times (-\infty)$ sont des F.I si $k=0$.
+
+                    $k\times (+\infty)=+\infty$ et $k\times (-\infty)=-\infty$ si $k>0$.
+
+                    $k\times (+\infty)=-\infty$ et $k\times (-\infty)=+\infty$ si $k<0$.\\
+
+                    \underline{\textbf{Limite de l'inverse d'une fonction}}
+
+                    $\begin{array}{|c|c|c|c|c|}
+                        \hline
+                        \lim_{x\to x_0}f(x)    &   l\neq 0    & +\infty \text{ ou }-\infty & 0 \text{ et }f(x)>0 & 0  \text{ et }f(x)<0 \\ \hline
+   \lim_{x\to x_0}\left(\cfrac{1}{f(x)}\right) & \cfrac{1}{l} &             0              &    +\infty          &   -\infty            \\ \hline
+                    \end{array}$\\
+
+                    \underline{\textbf{Limite du quotient de deux fonction}}
+
+                    Pour calculer la limite en $x_0$ de $\cfrac{f(x)}{g(x)}$ (avec $g(x)\neq 0$), il suffit de remarquer que 
+                    $\cfrac{f(x)}{g(x)}=f(x)\times \cfrac{1}{g(x)}$ et d'utiliser les propriétés précédentes.
+
+                    On admet les propriétés suivantes: 
+                    \begin{itemize}
+                        \item $\lim_{x\to x_0}k=k$.
+                        \item Si $n\in \mathbb{N}$, alors $\lim_{x\to x_0}x^n=x_0^n$.
+                        \item Si $x_0\geq 0$, alors $\lim_{x\to x_0}\sqrt{x}=\sqrt{x_0}$.
+                        \item $\lim_{x\to x_0}|x|=|x_0|$.
+                    \end{itemize}
+
+                \textbf{Remarque}: 
+            \begin{itemize}
+                \item Dans les propriétés ci-dessus, $x_0$ peut être fini ou infini.
+                \item Pour les formes indéterminées dans les limites, il faut parfois choisir entre \textbf{factoriser ou développer} et simplifier.
+                \item \`A l'infini ($+\infty$ ou $-\infty$), un polynôme a même limite que le monôme le plus haut dégré du polynôme. 
+                \item \`A l'infini ($+\infty$ ou $-\infty$), une fraction rationnelle a même limite le quotient des monômes les plus 
+                haut dégré de son numérateur et de son dénominateur.
+            \end{itemize}
+
+            \subsection{Dérivation et calculs de dérivées}
+                \subsubsection{Dérivée de fonctions élémentaires}
+                    Le tableau ci-dessous donne des formules de dérivation des fonctions élémentaires.
+                        \begin{center}
+                            $\begin{array}{|c|c|}
+                                \hline
+                                        f(x)        &     f'(x) \\ \hline
+                                k (k\in\mathbb{R})  &      0    \\ \hline
+                                        x           &       1   \\ \hline
+                                    ax(a\neq 0)     &       a   \\ \hline
+                        x^n(n\in\mathbb{N};n\geq 2) &   nx^{n-1}\\ \hline
+                                \cfrac{1}{x}        & \cfrac{-1}{x^2}\\ \hline
+                                \sqrt{x}            & \cfrac{1}{2\sqrt{x}}\\ \hline
+                            \end{array}$
+                        \end{center}
+                \subsubsection{Dérivée et Opération sur les fonctions} 
+                    Le tableau ci-dessous donne des formules de dérivation de la somme, du produit et du quotient de deux fonctions dérivables.
+                        \begin{center}
+                            $\begin{array}{|c|c|}
+                                \hline
+                                    \text{Fonction} &  \text{Dérivée}       \\ \hline
+                                        U+V         &    U'+V'              \\ \hline
+                                        kU          &    kU'                \\ \hline
+                                        UV          &  U'V+V'U              \\ \hline
+                                \cfrac{U}{V}        & \cfrac{U'V-V'U}{V^2}  \\ \hline
+                                \cfrac{1}{U}        & -\cfrac{U'}{U^2}      \\ \hline
+                                \sqrt{U}            & \cfrac{U'}{2\sqrt{U}} \\ \hline
+                        U^n(n\in\mathbb{N};n\geq 2) & nU'U^{n-1}            \\ \hline
+                            \end{array}$
+                        \end{center}
+            \subsection{Tangente au point d'abscisse $x_0$}
+                Soit $f$ une fonction numérique, $(\mathcal{C}_f)$ sa courbe représentative et $A$ un point de $(\mathcal{C}_f)$ d'abscisse $x_0$. 
+                Une équation de la tangente $(\mathcal{T})$ en $A$ (au point d'abscisse $x_0$)est:\\ 
+                \begin{center}
+                    $(\mathcal{T})$: $y=f'(x_0)(x-x_0)+f(x_0)$
+                \end{center}
+            \subsection{Sens de variation d'une fonction}
+                Soit $f$ une fonction numérique dérivable sur un interval $I=]a;b[$ de $\mathbb{R}$. Alors on a: 
+                \begin{itemize}
+                    \item Si $f'(x)\leq 0$ sur $I$ (resp. $f'(x)<0$), alors $f$ est décroissante (resp. strictement décroissante) sur $I$.
+                    \item Si $f'(x)\geq 0$ sur $I$ (resp. $f'(x)>0$), alors $f$ est croissante (resp. strictement croissante) sur $I$.
+                \end{itemize}
+                \textbf{Consequence : } Si la fonction dérivée $f'$ de $f$ s'annule en changeant de signe au point $x_0$, alors la fonction $f$ 
+                présente au point $B$ de coordonnées $(x_0;f(x_0))$ (au point d'abscisse $x_0$) un extremum, c'est-à-dire $f$ admet un minimum
+                rélatif ou un maximum rélatif au point $B(x_0;f(x_0))$.
