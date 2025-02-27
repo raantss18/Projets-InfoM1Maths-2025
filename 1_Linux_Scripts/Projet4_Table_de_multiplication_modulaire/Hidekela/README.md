@@ -5,7 +5,7 @@ __Un script bash affichant une table de multiplication modulo un nombre__
 ## Lancement
 
 ```bash
-    sh modular_multiplication_table.sh
+sh modular_multiplication_table.sh
 ```
 
 ## Principe
@@ -16,6 +16,7 @@ __Un script bash affichant une table de multiplication modulo un nombre__
 
 ## Exemple
 
+```bash
 ---------------------------------
 Table de Multiplication Modulaire
 ---------------------------------
@@ -36,3 +37,5 @@ Voici la table de multiplication 17 mod 36:
 (17 x 9) mod 36 = 9
 (17 x 10) mod 36 = 26
 
+Temps écoulé: 156000300 nanosecondes
+```
