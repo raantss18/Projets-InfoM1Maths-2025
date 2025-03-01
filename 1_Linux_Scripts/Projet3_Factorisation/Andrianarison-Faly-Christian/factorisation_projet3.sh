@@ -13,7 +13,7 @@ function factorisation_naive()
     until [ $(($a / $b)) -lt $b ]; do
         if [ $(($a % $b)) -eq 0 ]; then
             echo " ==> $n = $b * $(($a/$b))"
-            exit 0
+            return 0
         fi
         b=$(($b+1))
     done
@@ -29,23 +29,28 @@ function produit_de_premiers()
 
     until [ $a -eq 1 ]; do
         #générer les nombres premiers un par un (un par itération)
-        if [ $p -gt 2 ]; then
-            nbr_premier_trouvE="false"
-            until $nbr_premier_trouvE; do
-                p=$(($p + 2))
-                for q in ${premiers[@]}; do
-                    if [ $(($p % $q)) -eq 0 ]; then 
-                        break
-                    elif [ $(($p / $q)) -lt $q ]; then   
-                        nbr_premier_trouvE="true"
-                        premiers+=("$p")
-                        break
-                    fi
-                done
-            done
-        else p=$(($p + 1))
-        fi
+        # if [ $p -gt 2 ]; then
+        #     nbr_premier_trouvE="false"
+        #     until $nbr_premier_trouvE; do
+        #         p=$(($p + 2))
+        #         for q in ${premiers[@]}; do
+        #             if [ $(($p % $q)) -eq 0 ]; then 
+        #                 break
+        #             elif [ $(($p / $q)) -lt $q ]; then   
+        #                 nbr_premier_trouvE="true"
+        #                 premiers+=("$p")
+        #                 break
+        #             fi
+        #         done
+        #     done
+        # else p=$(($p + 1))
+        # fi
         #echo $p
+        if [ $p -gt 2 ]; then
+            p=$(($p + 2))
+        else 
+            p=$(($p + 1))
+        fi
 
         #test de divisibilité de a par p
         if [ $(($a % $p)) -eq 0 ]; then
@@ -68,13 +73,31 @@ function produit_de_premiers()
 
     #echo ${premiers[@]}
     echo "==> $n = $decomposition"
-    #exit 0
+    #exit 
 }
+
+
+algo1="Factorisation simple (n = p * q)"
+algo2="Décomposition en produit de facteurs premiers"
+
+until [[ "$algo" =~ ^[1-2]+$ ]]; do
+    read -p "Veuillez choisir un algorithme:
+            1) $algo1
+            2) $algo2 
+            => " algo
+    if [ "$algo" -eq "1" ]; then
+        echo "**${algo1}**"
+    elif [ "$algo" -eq "2" ]; then
+        echo "**${algo2}**"
+    else 
+        "Mauvaise entrée: veuillez entrer 1 ou 2 !"
+    fi
+done
 
 until [[ $n =~ ^[0-9]+$ ]] && [ $n -ge 2 ]; do
     read -p "Veuillez entrer un nombre entier superieur a 2: >" n
     if [[ $n =~ ^[0-9]+$ ]] && [ $n -ge 2 ]; then
-        echo "En cours..."
+        echo "Factorisation en cours..."
     else 
         echo "Erreur: mauvaise entrée !"
     fi
@@ -82,7 +105,11 @@ done
 
 start_time=$(date +%s)
 
-produit_de_premiers $n
+if [ "$algo" -eq "1" ]; then
+    factorisation_naive $n
+elif [ "$algo" -eq "2" ]; then
+    produit_de_premiers $n
+fi
 
 end_time=$(date +%s)
 echo "(execution_time: $((end_time - start_time))s)"

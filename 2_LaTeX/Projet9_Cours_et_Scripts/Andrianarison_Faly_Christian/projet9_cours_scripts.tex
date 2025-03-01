@@ -1,0 +1,233 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{tgadventor}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{amsmath, amssymb}
+\usepackage{listings}
+\setlength{\parindent}{0pt}
+\newtheorem{theorem}{Théorème}
+\usepackage{mathpazo}
+
+
+\title{Zéros des fonctions}
+
+\begin{document}
+
+\begin{center}
+        \Huge \textbf{ZEROS DES FONCTIONS}
+\end{center}
+\vspace{1cm}
+
+Dans ce chapitre nous allons appliquer toutes les notions précédentes sur les suites et les fonctions, à la recherche des zéros des fonctions. Plus précisément, nous allons voir trois méthodes afin de trouver des approximations des solutions d'une équation du type $ ( f (x) = 0) $.
+
+\section{La dichotomie}
+\subsection{Pricipe de la dichotomie}
+    Le principe de dichotomie repose sur la version suivante du \textit{théorème des valeurs intermédiaires} :
+    
+    \begin{theorem}
+    Soit $ f:[a,b] \longrightarrow \mathbb{R}$ une fonction continue sur un segment.\\
+    Si $f(a) \cdot f(b) \leq 0$, alors il existe $l \in [a, b] $ tel que  $f(l) = 0$.
+    \end{theorem}
+    
+    La condition $f(a) \cdot f(b) \leq 0$ signifie que $f(a)$ et $f(b)$ sont de signes opposés (ou que l'un des deux est nul). L'hypothèse de continuité est essentielle !
+
+    \vspace{0.5cm}
+
+    Ce théorème affirme qu'il existe au moins une solution de l'équation $f (x) = 0$ dans l'intervalle $[a, b]$.
+    Pour le rendre effectif, et trouver une solution (approchée) de l'équation $ f(x) = 0$, il s'agit maintenant de l'appliquer sur un intervalle suffisamment petit. On va voir que cela permet d'obtenir un solution de
+    l'équation $f (x) = 0$ comme la limite d'une suite.
+
+    \vspace{0.5cm}
+    
+    Voici comment construire une suite d'intervalles emboîtés, dont la longueur tend vers $0$, et contenant chacun une solution de l'équation $f (x) = 0$.
+    On part d'une fonction $f : [a, b] \rightarrow \mathbb{R}$ continue, avec $a < b$, et $f (a)\cdot f (b) \leq 0$.
+    Voici la première étape de la construction : on regarde le signe de la valeur de la fonction $f$ appliquée au
+    point milieu $\frac{a+b}{2}$.
+    \begin{itemize}
+        \item Si $f(a) \cdot f(\frac{a+b}{2}) \leq 0$, alors il existe $c \in [a, \frac{a+b}{2}]$ tel que $f(c) = 0$. 
+        \item Si $f(a) \cdot f(\frac{a+b}{2}) > 0$, cela implique que $f ( \frac{a+b}{2}) \cdot f(b) \leq 0$, et alors il existe $c \in [\frac{a+b}{2}, b]$ tel que $f (c) = 0$.
+    \end{itemize} 
+
+    \vspace{0.5cm}
+    
+    Nous avons obtenu un intervalle de longueur moitié dans lequel l'équation $f (x) = 0$ admet une solution.
+    On itère alors le procédé pour diviser de nouveau l'intervalle en deux.
+    Voici le processus complet : \\
+    \begin{itemize}
+        \item \textbf{Au rang 0: } \\ On pose $a_0 = a$, $b_0 = b$. Il existe une solution $x_0$ de l'équation $f (x) = 0$ dans l'intervalle $[a_0, b_0]$.
+        
+        \item \textbf{Au rang 1: }
+            \begin{itemize}
+                \item[-] Si $f(a_0) \cdot f(\frac{a_0+b_0}{2}) \leq 0$, alors on pose $a_1 = a_0$ et $b_1 = \frac{a_0+b_0}{2}$,
+                \item[-] Sinon on pose $a_ = \frac{a_0 + b_O}{2}$ et $b_1 = b.$
+                \item[-] Dans les deux cas, il existe une solution $x_1$ de l'équation $f (x) = 0$ dans l'intervalle $[a_1, b_1]$.
+            \end{itemize}
+            
+        \item \dots
+        
+        \item \textbf{Au rang n:}  supposons construit un intervalle $[a_n,b_n]$, de longueur $\frac{b-a}{2^n}$, et contenant une solution $x_n$ de l'équation $f (x) = 0$. Alors :
+            \begin{itemize}
+                \item[-] Si $f(a_n) \cdot f(\frac{a_n+b_n}{2}) \leq 0$, alors on pose $a_{n+1} = a_n$ et $b_{n+1} = \frac{a_n + b_n}{2}$,
+                \item[-] sinon on pose $a_{n+1} = \frac{a_n + b_n}{2}$ et $b_{n+1} = b_n$.
+                \item[-] Dans les deux cas, il existe une solution $x_{n+1}$ de l'équation $f (x) = 0$ dans l'intervalle $[a_{n+1}, b_{n+1}]$.
+            \end{itemize}
+    \end{itemize}
+
+    \vspace{0.5cm}
+    
+    À chaque étape on a $$ a_n \leq xn \leq b_n $$.
+    On arrête le processus dès que $b_n - a_n = \frac{b - a}{2^n}$ est inférieur à la précision souhaitée.
+
+    \vspace{0.5cm}
+    
+    Comme $(a_n)$ est par construction une suite croissante, $(b_n)$ une suite décroissante, et $(b_n - a_n) \rightarrow 0$ lorsque $n \rightarrow +\infty$, les suites $(a_n)$ et $(b_n)$ sont adjacentes et donc elles admettent une même limite. D'après le théorème des gendarmes, c'est aussi la limite disons de la suite $(x_n)$. La continuité de $f$ montre que
+    $f(l) = lim_{n \rightarrow +\infty}f(x_n) = lim_{n \rightarrow +\infty} 0 = 0$. Donc les suites $(a_n)$ et $(b_n)$ tendent toutes les deux vers $l$, qui est
+    une solution de l'équation $f (x) = 0$.
+    
+\subsection{Résultat numérique pour $\sqrt{10}$}
+    Nous allons calculer une approximation de $\sqrt{10}$. Soit la fonction $f$ définie par $f (x) = x^2 - 10$, c'est une fonction continue sur $\mathbb{R}$ qui s'annule en $\pm \sqrt{10}$ . De plus $\sqrt{10}$ est l'unique solution positive de l'équation $f (x) = 0$. Nous pouvons restreindre la fonction $f$ à l'intervalle $[3, 4]$ : en effet $3^2 = 9 \leq 10$ donc $3 \leq \sqrt{10}$ et $4^2 = 16 \geq 10$ donc $4 \geq \sqrt{10}$. En d'autre termes $f(3) \leq 0$ et $f(4) \geq 0$, donc l'équation $f (x) = 0$ admet une solution dans l'intervalle $[3, 4]$ d'après le théorème des valeurs intermédiaires, et par unicité c'est $\sqrt{10}$, donc $ \sqrt{10} \in [3, 4]$.
+    Notez que l'on ne choisit pas pour $f$ la fonction $x \mapsto x - \sqrt{1}$ car on ne connaît pas la valeur de $\sqrt{10}$ . C'est ce que l'on cherche à calculer !
+
+    \vspace{0.5cm}
+    
+    Voici les toutes premières étapes:
+    \begin{enumerate}
+        \item On pose $a_0 = 3$ et $b_0 = 4$, on a bien $f(a_0) \leq 0$ et $f(b_0) \geq 0$. On calcule $\frac{a_0 + b_0}{2} = 3.5$ puis $f(\frac{a_0 + b_0}{2})$: $f(3.5) = 3.5^2 - 10 = 2.25 \geq 0$. Donc $\sqrt{10}$ est dans l'intervalle $[3, 3.5]$ et on pose $a_1 = a_0 = 3$ et $b_1 = \frac{a_0 + b_0}{2} = 3.5$.
+        
+        \item On sait donc que $f(a_1) \leq 0$ et $f(b_1) \geq 0$. On calucle $f(\frac{a_1+b_1}{2}) = f(3.25) = 0.5625 \geq 0$, on pose $a_2 = 3$ et $b_2 = 3.25$.
+        
+        \item On calcule $f(\frac{a_2 + b_2}{2}) = f(3.125) = -0.23\dots \leq 0$. Comme $f(b_2) \geq 0$ alors cette fois $f$ s'annule sur le second intervalle $[\frac{a_2+b_2}{2}, b_2]$ et on pose $a_3 = \frac{a_2+b_2}{2} = 3.125$ et $b_3 = b_2 = 3.25$.  
+    \end{enumerate}
+
+    A ce stade, on a prouvé: $3.125 \leq \sqrt{10} \leq 3.25$.
+    Voici la suite des étapes: 
+    \begin{center}
+        \begin{tabular}{l l}
+            $a_0 = 3$   &  $b_0 = 4$ \\
+            $a_1 = 3$   &  $b_1 = 3.5$ \\
+            $a_2 = 3$   &  $b_2 = 3.25$ \\
+            $a_3 = 3.125$   &  $b_3 = 3.25$ \\
+            $a_4= 3.125$   &  $b_4 =3.1875$ \\
+            $a_5 = 3.15625$   &  $b_5 = 3.1875$ \\
+            $a_6 = 3.15625$   &  $b_6 = 3.171875$ \\
+        \end{tabular}    
+    \end{center}
+    
+    Donc en 8 étapes on obtient l'encadrement:
+    $$ 3.160 \leq \sqrt{10} \leq 3.165 $$
+
+    En particulier, on vient d'obtenir les deux premières décimales: $\sqrt{10} = 3.16 \dots$
+
+\subsection{Résultats numériques pour $(1.10)^{\frac{1}{12}}$}
+    Nous cherchons maintenant une approximation de $(1.10)^{\frac{1}{12}}$. Soit $f(x) = x^12 - 1.10 $. On pose $a_0 = 1$ et $b_0 = 1.1$. Alors $f(a_0) = -0.10 \leq 0$ et $f(b_0) = 2.038 \dots \geq 0$.
+
+    \begin{center}
+        \begin{tabular}{l l}
+            $a_0 = 1$   &  $b_0 = 1.10$ \\
+            $a_1 = 1$   &  $b_1 = 1.05$ \\
+            $a_2 = 1$   &  $b_2 = 1.025$ \\
+            $a_3 = 1$   &  $b_3 = 1.0125$ \\
+            $a_4 = 1.00625$   &  $b_4 =1.0125$ \\
+            $a_5 = 1.00625$   &  $b_5 = 1.00937$ \dots\\
+            $a_6 = 1.00781 \dots$   &  $b_6 = 1.00937$ \dots\\
+            $a_7 = 1.00781 \dots$   &  $b_6 = 1.00937$ \dots\\
+            $a_8 = 1.00781 \dots$   &  $b_6 = 1.00820$ \dots\\
+        \end{tabular}
+    \end{center}
+
+    Donc en 8 étapes on obtient l'encadrement:
+    $$ 1.00781 \leq (1.10)^{\frac{1}{12}} \leq 1.00821 $$
+
+\subsection{Calcul de l'erreur}
+    La méthode de dichotomie a l'énorme avantage de fournir un encadrement d'une solution $l$ de l'équation ($f(x) = 0$). Il est dinc facile d'avoir une majoration de l'erreur. En effet, à chaque étape, la taille l'intervalle contenant $l$ est divisée par 2. Au départ, on sait que $l \in [a, b]$ (de longueur $b-a$); puis $l \in [a_1, b_1]$ (de longueur $\frac{a-b}{2}$); puis $l \in [a_2, b_2]$ (de longueur $\frac{b-a}{4}$); \dots; $[a_n, b_n]$ étant de longueur $\frac{b-a}{2^n}$.
+
+    \vspace{0.5cm}
+    
+    Si, par exemple, on souhaite obtenir une approximation de $l$ à $10^{-N}$ près, comme on sait que $a_n \leq l \leq b_n$, on obtient $|l - a_n| \leq |b_n - a_n| = \frac{b - a}{2^n}$. Donc pour avoir $|l - a_n| \leq 10^{-N}$, il suffit de choisir $n$ tel que $\frac{b-a}{2^n} \leq 10^{-N}$. Nous allons utiliser le logarithme décimal: 
+
+    \vspace{0.5cm}
+    
+        \begin{tabular}{l l}
+            $\frac{b-a}{2^n} \leq 10^{-N}$ & $\Leftrightarrow (b-a) \cdot 10^N \leq 2^n$ \\
+                            & $ \Leftrightarrow \log(b-a) + \log(10^N) \leq \log(2^n)$ \\
+                            & $ \Leftrightarrow \log(b-a) + N \leq n \log 2 $ \\
+                            & $ \Leftrightarrow n \geq \frac{N + \log(b-a)}{\log 2} $\\
+        \end{tabular} \\
+
+    \vspace{0.5cm}
+        
+    Sachant $ \log 2 = 0.301 \dots$, si par exemple $b-a \leq 1$, voici le nombre d'itérations suffisantes pour avoir une précision de  $10^{-N}$ (ce qui correspond, à peu près, à $N$ chiffres exacts après la virgule).
+    \begin{center}
+        \begin{tabular}{l l}
+            $10^{-10}$ ($~ 10$ décimales)   &  $34$ itérations \\
+            $10^{-100}$ ($~100$ décimales)   &  $333$ itérations \\
+            $10^{-100}$ ($~1000$ décimales)   &  $3322$ itérations \\
+        \end{tabular}
+    \end{center}
+    
+    Il faut entre 3 et 4 itérations supplémentaires pour obtenir une nouvelle décimale.
+
+    \vspace{0.5cm}
+    
+    \textbf{Remarque.} \\
+    En toute rigueur il ne faut pas confondre précision et nombre de décimales exactes, par exemple $0.999$ est une approximation de $1,000$ à $10^{-3}$ près, mais aucune décimale après la virgule n'est exacte. En pratique, c'est la précision qui est la plus importante, mais il est plus frappant de parler  de nombre de décimales exactes.
+
+\subsection{Algorithmes}
+
+    Voici comment implémenter la dichotomie dans le langage \texttt{Python}. Tout d'abord on définit une fonction $f$ (ici par exemple $f(x) = x^2 - 10$): \\
+    \textbf{Code 37} (\textit{dichotomie.py (1)}).
+    \begin{lstlisting}[language=Python]
+        def f(x):
+            return x*x - 10
+    \end{lstlisting}
+
+    \vspace{0.5cm}
+
+    Puis la dichotomie proprement dite: en entrée de la focntion, on a pour variables $a$, $b$ et $n$ le nombre d'étapes voulues. \\
+    \textbf{Code 38} (\textit{dichotomie.py (2)}).
+    \begin{lstlisting}[language=Python]
+    def dicho(a,b,n):
+        for i in range(n):
+            c = (a+b)/2
+            if f(a)*f(c) <= 0:
+                b = c 
+            else:
+                a = c
+            return a,b
+    \end{lstlisting}
+
+    \vspace{0.5cm}
+
+    Même algoritgme, mais avec cette fois en entrée la précision souhaitée: \\
+    \textbf{Code 39} (\textit{dichotomie.py (3)}).
+    \begin{lstlisting}[language=Python]
+        def dichobis(a,b,prec):
+            while b-a > prec:
+                c = (a+b)/2
+                if f(a)*f(c) <= 0:
+                    b = c 
+                else:
+                    a = c
+            return a,b
+    \end{lstlisting}
+
+    \vspace{0.5cm}
+
+    Enfin, voici la version récursive de l'algorithme de dichotomie. \\
+    \textbf{Code 40} (\textit{dichotomie.py (4)}).
+    \begin{lstlisting}[language=Python]
+        def dichotomie(a,b,prec):
+            if b-a <= prec:
+                return a, b
+            else
+                c = (a+b)/2    
+                if f(a)*f(c) <= 0:
+                    return dichotomie(a,c,prec)
+                else:
+                    return dichotomie(c,b,prec)
+    \end{lstlisting}
+
+\end{document}
