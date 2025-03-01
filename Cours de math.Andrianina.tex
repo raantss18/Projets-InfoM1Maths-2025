@@ -1,0 +1,252 @@
+%=============================
+% Mon Projet LaTeX : Cours de Mathématiques
+%=============================
+\documentclass[a4paper,12pt]{article} % Définition de la classe du document
+\usepackage[french]{babel} % Utilisation du français
+\usepackage{amsmath, amssymb, amsthm} % Packages pour les maths
+\usepackage{geometry} % Gestion des marges
+\geometry{margin=2.5cm} % Définition des marges
+
+
+% Définition des environnements de théorèmes
+\newtheorem{theoreme}{Théorème}[section]
+\newtheorem{definition}{Définition}[section]
+\newtheorem{propriete}{Propriété}[section]
+
+%=============================
+% Début du document
+%=============================
+\begin{document}
+	
+	\title{Cours Analyse}
+	\date{\today} % Date automatique
+	\maketitle
+	
+	\tableofcontents % Table des matières automatique
+	\newpage
+	
+	%=============================
+	% Chapitre 1 : Propriétés dans R
+	%=============================
+	\section{Propriétés dans $\mathbb{R}$}
+	\subsection {Notion d'ensemble}
+	\begin{definition}
+		
+		\begin{itemize}
+			\item On appelle réunion de A et B l'ensemble noté $A \cup B$ ,tel que pour tout $x \in A \cup B $ signifie que $x\in A$ ou $x\in B$
+			\item On appelle l'intersection de A et B l'ensemble noté $A \cap B$,tel que pour tout $x \in A \cap B$ signifie que $x\in A$ et $x \in B$
+			\item A est inclus dans B ou A est un sous-ensemble de B si tout élément de A appartient à B ,et on note $A \subseteq B$
+			\item Si A est un sous-ensemble de B ,on appelle complémentaire de A dans B ,noté 
+			$A^c$ ou $B \setminus A$ est défini par :
+			\[
+			A^c = B \setminus A = \{ x \in B \mid x \notin A \}
+			\]
+			\item On dit que A et B sont égaux et on note $A=B$ ,si $A \subseteq B$ et $B \subseteq A$
+			
+			
+			
+		\end{itemize}
+	\end{definition}
+	
+	\subsection{Relation d'ordre }
+		Soient $(E,\leq)$ un ensemble ordonné , A une partie de E et $\alpha \in A$ .On dit que:
+		\begin{itemize}
+			\item $\alpha$ est le plus grand élément de A et on le note $\alpha=maxA$ si pour tout $x\in A$ ,on a $\boldsymbol{x\leq\alpha}$.
+			\item $\alpha$ est le plus petit élément de A et on le note $\alpha=minA$ si pour tout $x\in A$,on a $\boldsymbol{x \geq\alpha}$.
+			\item Un élément M de E est un majorant de A si pour tout $x\in A$ ,on a $\mathbf{x\leq M}$
+            \item Un élément m de E est un minorant de A si pour tout $x\in A$ ,on a $\mathbf{m\leq x}$
+            \item On dit que A est \textbf{majoré}(respectivement \textbf{minoré})s'il admet un majorant(respectivement minorant).
+            \item On dit que A admet \textbf{une borne supérieure} si l'ensemble des majorants de A est non vide et admet un plus petit élément $M_0$. Le plus petit majorant $M_0$ de A est appelé \textbf{la borne supérieure de A} et on la note $M_0=supA$.
+            \item On dit que A admet \textbf{une borne supérieure}
+            si l'ensemble des minorants est non vide et admet un plus grand élément $m_0$ de A . Le plus grand minoran$m_0$ de A est appelé \textbf{la borne inférieure de A } et on la note $m_0=minA$.
+         	\end{itemize}
+            
+		\begin{theoreme}
+			Soient$(E,\leq)$ un ensemble totalement ordonné ,$A\subseteq E$ et $M_0 \in E$ .
+			Alors $M_0=supA$ ssi:
+			\begin{itemize}
+				\item pour tout $x\in A$,on a $x\leq M_0$ et
+				\item pour tout $M\in E$ tel que $M<M_0$ ,il existe $x\in A$ tel que $M<x\leq M_0$
+			\end{itemize}
+		\end{theoreme}
+		Preuve:Si pour tout $x\in A$,on a $x\leq M_0$ alaors $M_0$ est un majorant de A .Il faut donc montrer que c'est le plus petit des majorants .Soit M un majorant de A .Puisque E est totalement ordonné,on a $M<M_0$ mais alors M n'est plus un majorant,ou bien $M<M_0$ et il existe $x\in A$ tel que $M<x$
+		
+		\begin{theoreme}
+		Soient$(E,\leq)$ un ensemble totalement ordonné ,$A\subseteq E$ et $m_0 \in E$ .
+		Alors $m_0=infA$ ssi:
+		\begin{itemize}
+			\item pour tout $x\in A$,on a $m_0\leq x$ et
+			\item pour tout $m\in E$ tel que $m_0<m$ ,il existe $x\in A$ tel que $m_0\leq x<m$
+		\end{itemize}
+		\end{theoreme}
+	
+	\subsection{Borne supérieure et borne inférieure}
+	\begin{theoreme}
+		Toute partie non vide majorée de $R$ admet une borne supérieure.De même,toute partie non vide minorée de $R$ admet une borne inférieure. 
+	\end{theoreme}
+	\begin{theoreme}
+		Soit A une partie non vide et majorée de $R$ .Alors $ \alpha \in R$ est  la borne supérieure de A ssi  pour tout $ \epsilon > 0$ ,il existe $x \in A$ tel que $\alpha -\epsilon<x\leq \alpha $
+	\end{theoreme}
+	\begin{theoreme}
+		Soit A une partie non vide et minorée de $R$ .Alors $ \alpha$ est la borne inférieure de A ,ssi pour tout $\epsilon > 0$ ,il existe $x \in A $ tel que $ \alpha + \epsilon >x\geq \alpha$
+	\end{theoreme}
+	
+	 \begin{theoreme}
+	 	Si $x \in \mathbb{R}R$ :pour tout $\epsilon > 0$ ,$|x| \leq \epsilon $ ,alors $x=0$ 
+	 \end{theoreme}
+	 \begin{theoreme}
+	 	Pour tout $x \in \mathbb{R}$ avec $x >0$ et pour tout $y \in R$ il existe $n \in \mathbb{N}$ tel que $y\leq nx$.On dit que $\mathbb{R}R$ est archimédien .
+	\end{theoreme}
+
+	
+	%=============================
+	% Chapitre 2 : Fonction Numerique
+	%=============================
+	\section{Fonction Numerique}
+	\subsection{Generalité}
+	\begin{definition}
+	   	Une fonction	f de A dans B est une correspondance entre les éléments de A et ceux de B .C'est à dire que tout élément $x\in A$ ,la fonction f associe un élément $y=f(x)  \in B$ .		
+		
+	\end{definition}
+		\begin{propriete}
+		Soient \( f , g : I \to \mathbb{R} \) deux fonctions. On définit :
+		
+		
+		\begin{itemize}
+			\item La somme de \( f \) et \( g \) par :
+			\[
+			(f + g)(x) = f(x) + g(x), \quad \forall x \in I.
+			\]
+			
+			\item Le produit de \( f \) et \( g \) par :
+			\[
+			(fg)(x) = f(x) g(x), \quad \forall x \in I.
+			\]
+			
+			\item La multiplication par un scalaire \( \lambda \in \mathbb{R} \) de \( f \) par :
+			\[
+			(\lambda f)(x) = \lambda f(x), \quad \forall x \in I.
+			\]
+			
+			\item La fonction \( |f| \) sur \( I \) par :
+			\[
+			|f|(x) = |f(x)|, \quad \forall x \in I.
+			\]
+		\end{itemize}
+	\end{propriete}
+	   \
+		\begin{definition}
+		 Une fonction \( f : I \to \mathbb{R} \) est dite :
+		
+		\begin{itemize}
+			\item \textit{Majorée} s’il existe un réel \( M \) tel que :
+			\[
+			\forall x \in I, \quad f(x) \leq M,
+			\]
+			c’est-à-dire que l’ensemble \( \{ f(x) ; x \in I \} \) est une partie majorée de \( \mathbb{R} \).
+			
+			\item \textit{Minorée} s’il existe un réel \( m \) tel que :
+			\[
+			\forall x \in I, \quad m \leq f(x),
+			\]
+			c’est-à-dire que l’ensemble \( \{ f(x) ; x \in I \} \) est une partie minorée de \( \mathbb{R} \).
+			
+			\item \textit{Bornée} si elle est à la fois minorée et majorée, c’est-à-dire s’il existe \( M \) tel que :
+			\[
+			\forall x \in I, \quad |f(x)| \leq M.
+			\]
+		\end{itemize}
+      \end{definition}  
+      \subsection{Limite}
+      \begin{definition}
+      	Soit $l \in \mathbb{R}$.On dit que f a pour limite l en $\alpha$ ou $f(x) $ tend vers l quand x tend vers $\alpha$ et on note $\lim_{x \to \alpha} f(x)=l$ si pour tout $\epsilon > 0 $,il existe $n>0$ tel que si $|x-\alpha|\leq n$,on a $|f(x)-l|\leq \epsilon$
+      	
+      \end{definition}
+      
+     \begin{theoreme}
+     caractérisation séquentielle :Soient $f: I \rightarrow \mathbb{R}$ ,une fonction et $\alpha ,l \in \mathbb{R}$ .ALors $\lim {x \to \alpha }f(x)=l$ ssi pour toute suite $(x_n$) une suite d'éléments de I telle que $\lim_{
+      n \to \infty} x_n=\alpha $ on a $\lim_{n \to \infty } f(x_n)=l$
+     
+     
+     \end{theoreme}
+     
+      \subsection{Continuité}
+     \begin{definition}
+     	Soient $f :I \rightarrow \mathbb{R}$une fonction et $ \alpha \in \mathbb{R}$ .On dit que f est continue en $\alpha$ si:
+     	pour tout $\epsilon >0$ ,il existe $ \beta >0$ ,pour $x \in I $ ,si $|x-\alpha| \leq \beta $ on a $|f(x) -f(\alpha)| \leq \epsilon$
+     	
+     \end{definition}
+    
+     Une fonction $f : I \to \mathbb{R}$ est dite \textbf{continue} en $\alpha$ si :
+    \begin{equation}
+     \lim\limits_{x \to \alpha} f(x) = f(\alpha).
+   \end{equation}
+  	\begin{theoreme}
+  	  Soient $,a ,b \in \mathbb{R}$ .Si $f:[a,b] \rightarrow \mathbb{R}$ est continue ,elle est continue et bornée et atteint ses bornes c'est-à-dire il existe $c,d \in [a,b]$ tels que pour tout $x \in [a,b]$ ,on a $f(c)<f(x)<f(d)$
+  	\end{theoreme}
+  	\begin{theoreme}[Valeurs intermédiaires]
+		Si $f$ est une fonction continue sur un intervalle $[a, b]$ et $d$ est un réel entre $f(a)$ et $f(b)$, alors il existe un $c \in [a, b]$ tel que $f(c) = d$.
+	
+	\end{theoreme}
+	
+	 \begin{definition}
+	    Une fonction $f:A \rightarrow \mathbb{R}$ est dite \textbf{uniformément continue} si 
+	    pour tout $\epsilon>0$ ,il existe $\beta >0$ tel que pour tout $x,y \in A$ ,si $|x-y| \leq \beta$ ,on a $|f(x)-f(y)| \leq \epsilon$ 
+	     
+	 \end{definition}
+     \subsection{Dérivabilité}
+	
+
+	   	\begin{definition}
+	   	
+	   	Soient $D$ une réunion d’intervalles non triviaux de $\mathbb{R}$, $\alpha \in D$ et $f$ une fonction définie sur $D$.  
+	   	On dit que $f$ est \textbf{dérivable en} $\alpha$ (resp. \textbf{dérivable à droite en} $\alpha$, resp. \textbf{dérivable à gauche en} $\alpha$) si l’application définie sur $D \setminus \{\alpha\}$ par :
+	   	\[
+	   	x \mapsto \frac{f(x) - f(\alpha)}{x - \alpha}
+	   	\]
+	   	admet une limite finie en $\alpha$ (resp. une limite finie à droite de $\alpha$, resp. limite finie à gauche de $\alpha$).  
+	   	Cette limite est appelée \textbf{le nombre dérivé de} $f$ en $\alpha$ (resp. \textbf{nombre dérivé à droite de} $f$ en $\alpha$, resp. \textbf{nombre dérivé à gauche de} $f$ en $\alpha$), et l’on note :
+	   	$f'(\alpha),  f'_d(\alpha),  f'_g(\alpha)$
+	   	Ainsi, on a :
+	   	$f'(\alpha) = \lim_{x \to \alpha} \frac{f(x) - f(\alpha)}{x - \alpha}$
+	   	
+	   	$f'_d(\alpha) = \lim_{\substack{x \to \alpha \\ x > \alpha}} \frac{f(x) - f(\alpha)}{x - \alpha}$
+	   	$f'_g(\alpha) = \lim_{\substack{x \to \alpha \\ x < \alpha}} \frac{f(x) - f(\alpha)}{x - \alpha}$
+	   	
+	   	Ou, en posant $h = x - \alpha$ :
+	   	
+	   	$
+	   	f'(\alpha) = \lim_{h \to 0} \frac{f(\alpha + h) - f(\alpha)}{h}$
+	   $	f'_d(\alpha) = \lim_{\substack{h \to 0 \\ h > 0}} \frac{f(\alpha + h) - f(\alpha)}{h}$
+	   	$f'_g(\alpha) = \lim_{\substack{h \to 0 \\ h < 0}} \frac{f(\alpha + h) - f(\alpha)}{h}$
+	   	
+	   	On dit que f est \textbf{dérivable sur} $D$ si elle est dérivable en tout point de $D$.
+	   	\end{definition}
+	   	\begin{theoreme}
+	   f est dérivable en $\alpha$  ssi il existe $l \in \mathbb{R}$ et une fonction $\epsilon$ définie et continue sur $D$ telle que $\epsilon(\alpha)=0$  et pour tout $x \in D$ ,on a $f(x)=f(\alpha)+l.(x-\alpha) + \epsilon(x).(x-\alpha)$ 
+	   \end{theoreme}
+	   
+	  \begin{propriete}
+	  	Soient f ,g 2 fonctions dérivables ,on a:
+	  	\begin{itemize}
+	  		
+	  	\item La dérivée d'une somme et la multiplication par un scalaire :
+	  	$(f + g)'(x) = f'(x) + g'(x)$ et $  (\lambda f)'(x) = \lambda f'(x)$, pour tout  $\lambda$
+	  	 La dérivée d'un produit :
+	  	\item 
+	  	$(f \times g)'(x) = f'(x)g(x) + f(x)g'(x)$
+	  	
+	  	 \item La dérivée d'un quotient (si $g(x) \neq 0$ pour tout $x \in I) $:
+	  	$(\frac{f}{g})'(x) = \frac{f'(x)g(x) - f(x)g'(x)}{[g(x)]^2}$
+	  	
+	  	\item La dérivée d'une fonction inverse (si $f(x) \neq 0$ pour tout $x \in dans I)$ :
+	  	$(\frac{1}{f})'(x) = -\frac{f'(x)}{[f(x)]^2}.$
+	 
+	  \end{itemize}
+	 \end{propriete}
+	   
+	   	
+	%=============================
+	% Fin du document
+	%=============================
+\end{document}
