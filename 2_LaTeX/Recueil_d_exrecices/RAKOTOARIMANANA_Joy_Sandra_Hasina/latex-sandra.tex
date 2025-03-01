@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage[all]{xy}
+\usepackage{enumerate}
+\usepackage{fancyhdr,fancybox,amssymb,epsfig, amsmath, latexsym}
+% Required for inserting image
+
+
+\pagestyle{fancy} \lhead{{\sf Projet receuil d'exercices
+. 
+}} \rhead{\thepage} \cfoot{{\sf MAFI $|$ Projet \LaTeX $|$
+    2025 $|$ Rakotoarimanana Sandra}}
+    
+\begin{document}
+
+\section*{Problèmes}
+\begin{itemize}
+    \item [1)]
+Soit $E$ un ensemble, $d_1$ et $d_2$ deux distances sur $E$. Montrer que $d'=d_1+d_2$ et $d''=\max(d_1,d_2)$ sont des distances sur E et qu'elles y définissent la même topologie
+
+\noindent\textbf{Correction}
+\\ La vérification des axiomes est immédiate: soient $a,b,c$ trois éléments de $E$. On a clairement $d'(a,b)=0$ si et seulement si $a=b$. De même pour $d"$. Ensuite $d'(a,b)=d'(b,a)$ et de même pour $d"$. L'inégalité triangulaire est bien verifiée pour $d'$: \\
+\begin{center}
+   $d'(a,c)=d_1(a,c)+d_2(a,c)\leq d_1(a,b)+d_1(b,c)+d_2(a,b)+d_2(b,c)$
+\end{center}puisque $d_1$ et $d_2$ sont des distances, donc $d'(a,c)\leq d'(a,b)+d'(b,c)$. Ensuite on a, pour $i=1$ ou $2$,\\
+    \begin{center}
+        $d_i(a,c)\leq d_i(a,b)+d_i(b,c)\leq d''(a,b)+d''(b,c)$ 
+    \end{center} \\
+ce qui donne bien $d''(a,c)\leq d''(a,b)+d''(b,c)$. \hfill $\square$
+\item[2)] Soit $E$ un ensemble possédant aux moins deux élements distincts. Vérifier  que l'application $d: E\times E \rightarrow [0, \infty[$ qui au couple $(x,y)$ associe 1 si $x \neq y$ et 0 si $x=y$ est une distance. Montrer que la topologie associée à cette distance est la topologie discrète. Est-ce que l'adhérence d'une boule ouverte $B(x,\delta)=\{y \in E / d(x,y)<\delta\}$ est nécessairement la boule fermée $B_F(x, \delta)=\{y \in E /d(x,y)\leq \delta\}$ qui lui est associé?
+
+\textbf{Correction}
+L'axiomme de symétrie $(d(x,y)=d(y,x))$ est évident tout comme il est clair que $d(x,y)=0$ ssi $x=y$. L'inégalité triangulaire se vérifie aisément. Pour montrer que la topologie associée est discrète, il suffit de montrer que tous les singletons $\{y\}$ sont ouverts. Or $\{y\}=B(y,r)$ pour tout $r \leq 1$. On remarque que $B_F(y,1)=E$. Mais comme $\{y\}$ est fermé, $\overline{B(y,1)}= \overline {\{y\}}=\{y\} \neq B_F(y,1)$. \hfill $\square$
+\item[3)]  Montrer que tout produit direct ou somme directe de corps est von Neumann régulier.
+
+\noindent\textbf{Correction}
+    Soit $ \{F_i\}_{i\in \Lambda} $ une famille de corps où $ \Lambda $ est un ensemble d'indices. Posons $ R=\Pi_{i\in\Lambda}F_i $ et $ Q=\bigoplus_{i\in\Lambda}F_i $. Il est bien connu que $ R $ et $ Q $ sont des anneaux munis d'opérations définies composante par composante en fonction de chaque $ F_i $.
+    
+    Pour voir que $ R $ est von Neumann régulier, prenons un élément arbitraire $ x=(x_i)_{i\in\Lambda}\in R $, définissons $ y=(y_i)_{i\in\Lambda} $ par $ y_i=0 $ si $ x_i=0 $ et sinon $ y_ix_i=1 $ pour chaque $ i\in\Lambda $, ce qui est possible puisque les $ F_i $ sont des corps. Ainsi, nous avons :
+    $$ xyx=(x_i)_{i\in\Lambda}(y_i)_{i\in\Lambda}(x_i)_{i\in\Lambda}=(x_iy_ix_i)_{i\in\Lambda}=(x_i)_{i\in\Lambda}=x. $$
+    
+    Puisque $ Q $ est un idéal propre de $ R $, si $ Q $ contenait un élément non von Neumann régulier, cela contredirait le fait que $ R $ est von Neumann régulier. \hfill $\square$
+     \item[4)]  Montrer que si $R$ est von Neumann régulier et possède une identité, alors $R$ est de dimension $0$.
+     
+\noindent\textbf{Correction}    
+    Nous devons montrer que tout idéal premier $ P $ est maximal.
+    
+    Soit $ P $ un idéal premier propre et soit $ x\notin P $ un élément arbitraire. Il existe donc $ y\in R$ tel que $ xyx=x $, ce qui équivaut à $ x(1-yx)=0 \in P$. Ainsi, $ 1-yx\in P $. Par conséquent, si un idéal $ Q $ contient strictement $ P $, alors il existe $ x\notin P $ tel que $ x\in Q $ et comme $ 1-yx\in Q $ pour un certain $ y\in R $, alors $ 1=1-yx+yx\in Q $, ce qui implique $ Q=R $. Donc, $ P $ est maximal. \hfill $\square$
+\end{itemize}
+\end{document}
