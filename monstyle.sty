@@ -1,0 +1,47 @@
+\ProvidesPackage{monstyle} % Nom du package
+% Chargement de packages utiles
+\RequirePackage{xcolor} % Pour les couleurs
+% Définition d'une couleur personnalisée
+\definecolor{maCouleur}{RGB}{30,144,255}
+% Définition des couleurs personnalisées
+\definecolor{myMainColor}{RGB}{0, 102, 204}  % Bleu profond
+\definecolor{mySecondaryColor}{RGB}{255, 153, 51} % Orange
+\definecolor{myBackground}{RGB}{240, 240, 240} % Gris clair
+% Application des couleurs à Beamer
+\setbeamercolor{frametitle}{fg=white, bg=myMainColor}
+\setbeamercolor{title}{fg=myMainColor}
+\setbeamercolor{structure}{fg=mySecondaryColor}
+\setbeamercolor{normal text}{fg=black, bg=myBackground}
+\setbeamertemplate{footline}{
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=.33\paperwidth,ht=2.5ex,dp=1ex,center]{date in head/foot}%
+             \texttt{\insertemail}
+        \end{beamercolorbox}%
+    }%
+    \vskip0pt%
+}
+% Personnalisation de l'en-tête avec le nom de la section à droite
+\setbeamertemplate{headline}{%
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=.7\paperwidth,ht=2.5ex,dp=1ex,left]{section in head/foot}%
+            \hspace{1em} \insertshorttitle
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.3\paperwidth,ht=2.5ex,dp=1ex,right]{subsection in head/foot}%
+            \insertsection
+            \hspace{1em}
+        \end{beamercolorbox}%
+    }%
+    \vskip0pt%
+}
+
+% Définition d'une nouvelle commande pour l'email
+\newcommand{\insertemail}{tojorandriamahery30@gmail.com} % Remplacez par votre adresse
+
+% Définition d'une commande personnalisée
+\newcommand{\monTitre}[1]{%
+	\textbf{\textcolor{maCouleur}{#1}}%
+}
+
+\endinput
