@@ -1,0 +1,20 @@
+\ProvidesPackage{monstyle}
+
+%definir des marges personnalisées
+\usepackage[a4paper,margin=2in]{geometry}
+%package utile
+\usepackage{amsmath,amssymb}
+
+%definir une commande pour changer la couleur de texte
+\usepackage{xcolor}
+\newcommand{\texterouge}[1]{\textcolor{red}{#1}}
+
+
+%definir une nouvelle commande pour un titre personnalisé
+\newcommand{\montitre}[1]
+   {\begin{center}
+   	\Huge\bfseries #1
+
+\end{center}}
+\endinput
+
