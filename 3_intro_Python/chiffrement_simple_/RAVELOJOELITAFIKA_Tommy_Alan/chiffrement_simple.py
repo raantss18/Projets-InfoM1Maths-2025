@@ -1,4 +1,4 @@
-# Ce code utilise le décalage de 3 dans l'alphabet pour chiffrer et déchiffrer un texte
+# Ce programme utilise le décalage de 3 dans l'alphabet pour chiffrer et déchiffrer un texte
 
 ALPHABET = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
