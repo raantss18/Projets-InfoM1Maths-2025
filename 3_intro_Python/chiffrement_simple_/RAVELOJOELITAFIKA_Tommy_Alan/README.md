@@ -12,7 +12,7 @@ Ce script permet de **chiffrer** et **déchiffrer** un texte en utilisant un dé
 1. **Exécution du script**  
    Lancez le script avec la commande suivante :
    ```bash
-   python nom_du_script.py
+   python3 chiffrement_simple.py
 ## EXEMPLE
 
 "La vie est belle." devient "Od ylh hvw ehooh".
