@@ -15,6 +15,6 @@ Ce script permet de **chiffrer** et **déchiffrer** un texte en utilisant un dé
    python3 chiffrement_simple.py
 ## EXEMPLE
 
-"La vie est belle." devient "Od ylh hvw ehooh".
+"La vie est belle." devient "Od ylh hvw ehooh."
 
 
