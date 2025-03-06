@@ -1,8 +1,8 @@
 # Ce programme utilise le décalage de 3 dans l'alphabet pour chiffrer et déchiffrer un texte
 
 ALPHABET = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-
-def chiffrer(texte):
+# créeation des clées "chiffrer" et "dechiffrer"
+def chiffrer(texte): #"la vie est belle." devient "Od ylh hvw ehooh."
     c = ''
     for i in texte:
         if ALPHABET.find(i) == -1:  # vérifie si le caractère est dans l'alphabet défini
@@ -11,7 +11,7 @@ def chiffrer(texte):
             c += ALPHABET[(ALPHABET.find(i) + 3) % len(ALPHABET)]
     return c
 
-def dechiffrer(texte):
+def dechiffrer(texte): #"Od ylh hvw ehooh." devient "Lav vie est belle."
     e = ''
     for i in texte:
         if ALPHABET.find(i) == -1:  # vérifie si le caractère est dans l'alphabet défini
