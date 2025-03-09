@@ -1,4 +1,4 @@
-On a un code python qui calcule l'approximation de e par la série de terme général de (1/k!)pour k élement de N
+On a un code python qui calcule l'approximation de e par la série de terme général de (1/k!)pour k élement de N et pour k variant de 0 à n donné
 
 -----------******--------------------------------
 
