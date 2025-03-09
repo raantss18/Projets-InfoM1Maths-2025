@@ -16,63 +16,24 @@ pip install matplotlib
 
 ## Etapes de résolution
 
-Considérons le système $(S)$ suivant dont $x$ et $y$ sont inconnues réels, $a_i$, $b_i$ et $c_i$ $\in \mathbb{R}$ pour $i \in \{1, 2\}$:
+Considérons le système $(S)$ composé par les deux équations suivantes dont $x$ et $y$ sont inconnues réels, $a_i$, $b_i$ et $c_i$ $\in \mathbb{R}$ pour $i = 1, 2$:
 
-$$
-    (S) 
-    \left\{
-        \begin{array}{r}
-            a_1(x) + b_1(y) = c_1 \\
-            a_2(x) + b_2(y) = c_2
-        \end{array} 
-    \right. 
-$$
+$a_1(x) + b_1(y) = c_1$
 
-D'abord, on vérifie que la matrice A définie par 
-$
-    A = 
-    \left(
-        \begin{array}{cc}
-            a_1 & b_1 \\
-            a_2 & b_2
-        \end{array} 
-    \right)
-$
- est inversible, c'est à dire que $\Delta = a_1b_2 - a_2b_1 \not = 0$. Dans le cas contraire, soit le système admet une infinité de solutions, soit il n'y a aucune solution.
+$a_2(x) + b_2(y) = c_2$
+
+D'abord, on vérifie que la matrice A définie par
+|  |  |
+| ----- | ----- |
+| $a_1$ | $b_1$ |
+| $a_2$ | $b_2$ |
+|  |  |
+
+est inversible, c'est à dire que $\Delta = a_1b_2 - a_2b_1 \not = 0$. Dans le cas contraire, soit le système admet une infinité de solutions, soit il n'y a aucune solution.
 
 Dans la suite, on ne traitera que le cas où $\Delta \not = 0$.
 
-L'unique solution est donnée par $X = A^{-1}C$ où 
-$
-    X = 
-    \left(
-        \begin{array}{c}
-            x \\
-            y
-        \end{array} 
-    \right)
-$
- ,
-$
-    C = 
-    \left(
-        \begin{array}{c}
-            c_1 \\
-            c_2
-        \end{array} 
-    \right)
-$
- et
-$
-    A^{-1} = \frac{1}{\Delta}
-    \left(
-        \begin{array}{cc}
-            b_2 & -b_1 \\
-            -a_2 & a_1
-        \end{array} 
-    \right)
-$
- est l'inverse de $A$.
+L'unique solution est donnée par $X = A^{-1}C$ où $X = {^T(x, y)}$, $C = {^T(c_1, c_2)}$ et $A^{-1}$ est l'inverse de $A$.
 
 Le programme suit ces étapes pour la résolution du système (dans la méthode `resolve` de la classe `LinearEquationsSystem2x2`):
 
