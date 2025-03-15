@@ -1,0 +1,274 @@
+\documentclass[a4paper,12pt]{book}
+\usepackage[margin=2cm]{geometry}
+\usepackage[french]{babel}
+\usepackage{amsmath,amsfonts} 
+\newtheorem{definition}{defintion}[section]
+\newtheorem{theoreme}{theoreme}[section]
+\newcommand{\expo}[1]{\mathrm{e}^{#1}}
+\begin{document}
+\tableofcontents
+	\chapter{Integration des fonctions holomorphe}
+	\section{Definition}
+	Soit $ a,b \in\mathbb{R}$ \\
+	\begin{definition}
+        	On appelle chemin d'origine $ \alpha(a) $ et d'extremité 
+	$\alpha(b) $,toute application continue 
+\[
+	\begin{array}{r c l}
+		\alpha:[a;b] & \to & \mathbb{C} \\
+	\end{array}
+\]
+Le sous ensemble $\alpha([a;b]) $ de $\mathbb{C}$ est appelé l'image de $\alpha $ et on note $ Im(\alpha)$.\\ 
+    \end{definition}
+  \begin{definition}
+On dit que  $ \alpha $ est un chemin férmé ou un lacet si $ \alpha(a) = \alpha(b)$.\\Un lacet simple est un chemin férmé tel que $\alpha(t_1) \ne \alpha(t_2)$ quand $ t_1 \ne t_2 $ et $\alpha(a)=\alpha(b)$.\\
+\end{definition}
+\begin{definition}
+ Puisque $\alpha(t)\in \mathbb{C}$,pour tout $ t \in [a;b],\alpha(t)=x(t)+ iy(t)$.On dit que $\alpha$ est differentiable si les applications 
+\[
+    \begin{array}{r c l}
+       	t & \mapsto & x(t) \\ t & \mapsto & y(t)
+    	
+    \end{array}
+\]sont continuement differentiables.\\
+\end{definition}
+\begin{definition}
+ On dit que $\alpha$ est $ C^1$ par morceaux s'il existe une subdivision $ a = a_0<a_1<....<a_n = b $ tel que la restriction de $\alpha$ à chacque segment $[a_{k-1};a_k]$,$ k \in [1;n] $est une application de classe $ C^1$.\\\end{definition} 
+\begin{definition}
+  Soit 
+\[
+     \begin{array}{r c l}
+     	
+     	\alpha : [a;b] & \to & \mathbb{C}\\
+     	t & \mapsto& x(t)+ iy(t)
+     	
+     \end{array}
+\]\\un chemin.On appelle longeur du chemin $\alpha$ le nombre definie par:\\ 
+\begin{center}
+$$ L(\alpha)= \int_{a}^{b} |\alpha'(t)| dt= \int_{a}^{b}\sqrt{(x'(t))^2+ (y'(t))^2}$$.\\ 
+\end{center} 
+\end{definition}
+\begin{definition}
+Soit \[
+          \begin{array}{r c l}
+          	\alpha :[a;b] & \to & \mathbb{C}\\
+          \end{array}
+\]un chemin.On appelle chemin opposé de $\alpha$ , le chemin
+$\alpha^-$ d'origine $\alpha(b)$ et d 'extremité $\alpha(a)$,definie par:
+ $\alpha^-(t) = \alpha(a+b-t)$ pour $t\in [a,b]$.\\
+\end{definition}
+ \begin{definition}
+  Si $\alpha_1$,$\alpha_2$,...,$\alpha_n$ sont des chemins différentiable tel que l' extremité de $\alpha_k$ est l'origine de $\alpha_{k+1}$ avec $ 2\le k \le n-1$,le chemin
+ $\alpha=\alpha_1 + \alpha_2 +...+ \alpha_n$ est differentiable par morceaux et 
+
+        $$L(\alpha)= L(\alpha_1)+ L(\alpha_2)+...+ L(\alpha_n) $$
+        \centering
+\end{definition}
+\begin{definition}
+	Soit \[
+	\begin{array}{r c l}
+		\alpha:[a;b] & \to & \mathbb{C}\\
+	\end{array}
+	\]
+	un lacet de classe $ C^1$ par morceaux.On appelle indice de $\alpha$ par rapport à un point $"a" \in \mathbb{C}\setminus\ Im(\alpha)$,le nombre entier definie par :
+	    $$Ind_\alpha (a) = \frac{1}{2i\pi}\int_{\alpha}\frac{dz}{z-a}$$
+\end{definition}
+\underline{Remarque}:\\
+a-$Ind_\alpha(a)$ est égal au nombre de tours que fait fait $\alpha$ autour du point $ a\in\mathbb{C}\setminus\ Im(\alpha)$.De plus $ Ind_\alpha(a)$ est constante dans chacque composante connexe de $\mathbb{C}\setminus\ Im(\alpha)$;\\b-$Ind_\alpha(a) =0 $ dans la composante connexe non bornée de $\mathbb{C}\setminus\ Im(\alpha)$.\\
+   \section{Primitive et independance du chemin d'integration}
+     \begin{definition}
+     soit $\mathbb{D}$ un domaine,
+    \[
+         \begin{array}{r c l}
+         	f: \mathbb{D} & \to & \mathbb{C}
+         	
+         \end{array}
+    \]une fonction continue sur $\mathbb{D}$.On dit qu'une fonction 
+    \[
+         \begin{array}{r c l}
+         F:\mathbb{D} & \to & \mathbb{C}
+        \end{array}
+    \] primitive de $f$ sur $\mathbb{D}$ si $F'(z)=f(z)$ pour tout $z\in \mathbb{D} $.
+\end{definition}
+    \begin{theoreme}{(théoreme fondamental d'integration sur un chemin )}
+    	Soit $\mathbb{D}$ un domaine ,$f$ une fonction continue ,$F$ sa primitive sur $\mathbb{D}$
+    	\[
+    	   \begin{array}{r c l}
+    	   	f: \mathbb{D}& \to & \mathbb{C} \\ \\ F : \mathbb{D} & \to & \mathbb{C}
+    	   \end{array}
+    	\]Soit $\alpha$ l'application definie par :
+    	\[
+    	\begin{array}{r c l}
+    		\alpha:[a;b] & \to & \mathbb{D} \\
+    	\end{array}\]
+    avec $\alpha(a)= z_0$ et $\alpha(b)=z_1$ un chemin joignant $z_0$ et $z_1$.alors:\\
+    \begin{center}
+    $\int_{\alpha}f(z)dz = F(z_1)-F(z_0)$
+\end{center}
+Si de plus,$\alpha$ est un lacet ,on a $\int_{\alpha} f(z)dz=0$\\
+\underline{Preuve:}Soit \[
+\begin{array}{r c l}
+	\alpha:[a;b] & \to & \mathbb{D} 
+\end{array}\]$\alpha(a)=z_0,\alpha(b)=z_1$ un chemin différentiable .\\Notons $$\omega(t)=f(\alpha(t))\alpha'(t)$$
+et $$W(t)=F(\alpha(t))$$.\\
+On a : $$W'(t)= F'(\alpha(t))\alpha'(t)=f(\alpha(t))\alpha'(t)=\omega(t)$$\\
+Posons $$\omega(t) = u(t) + iv(t)$$ \\ $$ W(t)= U(t)+iV(t)$$ avec $$ U'=u et V'=v $$.Alors\\
+$$\int_{\alpha}f(z)dz=\int_{a}^{b}f(\alpha(t))\alpha'(t)dt=\int_{a}^{b}\omega(t)$$\\
+´= $$\int_{a}^{b}u(t)dt + i\int_{a}^{b}v(t)dt$$\\
+=$$[U(t)]^b_a + i[V(t)]^b_a$$\\
+=$$[W(t)]^b_a=F(z_1)-F(z_0)$$,on a le resultat.\\
+Il est clair que si$\alpha$ est un lacet c'est à dire $\alpha(a)=\alpha(b)$ ,on a $\int_{\alpha}f(z)=0$.
+       \end{theoreme}
+   \begin{definition}
+   	Soit 
+   	\[ \begin{array}{r c l}
+   		\alpha: [a;b] & \to &  \mathbb{D}\\
+   	\end{array}
+   	\]un chemin et 
+   	\[
+   	\begin{array}{r c l}
+   		f: \mathbb{D} & \to & \mathbb{C}
+   	\end{array}\]une fonction continue.On appelle integrale de f sur $\alpha$,le nombre definie par :\\
+   \begin{center}
+   	 $$\int_{\alpha}f(z)dz = \int_{a}^{b}f(\alpha(t))\alpha'(t)dt$$\\
+   \end{center}
+En effet ,\[
+\begin{array}{r c l}
+	\alpha: t\in [a;b] & \mapsto & \alpha(t)=z \in \mathbb{D}
+\end{array}\],ainsi $$f(z)=f(\alpha(t))$$ et $$ dz=\frac{d\alpha(t)}{dt}=\alpha'(t)$$.
+  \end{definition}
+\begin{definition}
+	Soit $\Omega$ une partie ouverte de $\mathbb{C}$.
+	\[
+	\begin{array}{r c l}
+		\alpha_1,\alpha_2 : [a;b] & \to & \Omega
+	\end{array}\]deux chemin telle que :
+     \begin{center}
+     	\begin{equation*}
+     	\begin{cases}
+     	\alpha_1(a)= \alpha_2(a)\\
+     	\alpha_1(b)= \alpha_2(b)\\
+     	
+     \end{cases}
+ \end{equation*}
+     \end{center}On dit que $\alpha_1$ et $\alpha_2$ sont \underline{homotopes} s'il existe une application :
+ \begin{center}\[
+ 	\begin{array}{r c l}
+ 		\phi : [a;b] \times [0;1] & \to & \Omega\\
+ 		(t,s) & \mapsto & \phi (t,s)
+ 	\end{array}\]
+ \end{center}telle que :
+(1) $\phi(t,0)= \alpha_1(t)$ pour tout $ t\in [a;b]$\\
+(2) $\phi(t,1)= \alpha_2(t)$ pour tout $ t\in [a;b]$\\
+(3) $\phi(a,s)= \alpha_1(a)=\alpha_2(a)$ pour tout $ s \in [0;1]$\\
+(4)
+\end{definition}
+\begin{definition}
+	Soit $ \Omega$ une partie ouverte de $\mathbb{C}$ et $ a\in \Omega$ .On dit que $\Omega$ est étoilé par rapport à $"a"$ si pour tout $z \in \Omega$,on a $ [a;z]\subseteq \Omega$ 
+	
+\end{definition}
+\begin{definition}
+	On dit qu' un domaine $ \Omega$ est simplement connexe si tout lacet $\alpha$ contenu dans $\mathbb{D}$ est homotope àun point.\\
+	La definition dit que qu'une partie ouverte $\Omega$ est simplement connexe si elle est connexe ainsi que son complémentaire.
+\end{definition}
+\begin{theoreme}
+	Soit $ \Omega$ un domaine simplement connexe et
+	\[
+	\begin{array}{r c l}
+		f: \Omega & \to & \mathbb{C}\\
+	\end{array}\]
+Alors les assetrions suivantes sont equivalentes:\\
+1- f est holomorhe dur $\Omega$ .\\
+2- La fonction definie par $F(z)=\int_{z_0}^{z}f(\xi)d\xi$ est holomorphe sur $\Omega$ et $\ F'(z)=f(z) (z\in\Omega)$ .\\
+3-La quantité $\int_{\alpha}f(z)dz=F(z_1)-F(z_0)$ est independante du chemin $\alpha\subseteq\Omega$ joignant $z_0$ et $ z_1$.\\
+4-$\int_{\alpha}f(z)dz=0$ pour tout lacet $\alpha\subseteq\Omega$
+\end{theoreme}
+\begin{theoreme}{(théoreme de Goursat)}\\
+	Soit $\Omega$ un ouvert de $\mathbb{C}$ et $ \omega\in\Omega$,$f$ une fonction definie sur $\Omega$ et holomorphe sur $\Omega\setminus\{\omega\}$.Alors pour tout triangle $\Delta\subseteq\Omega$,on a:\\
+	\begin{center}
+		$$\int_{\partial\Delta}f(\xi)d\xi=0$$
+	\end{center}
+ 
+  \underline{preuve:} 
+  Notons $I(\Delta)$ l'integrale de $f$ sur $\partial\Delta$ ,c'est à dire :\\
+\begin{center}
+	$$ I(\Delta)=\int_{\partial\Delta}f(z)dz $$\\
+\end{center}
+(1)Supposons d'abord que $\omega\notin \Delta$\\
+Notons $\Delta=\Delta(a,b,c)$ et soient $a',b',c'$ les milieux respectifs de $[b,c], [a,c],[a,b].$ \\
+Posons :\\
+$\Delta(1)=\Delta(a,b',c')$ \\
+$\Delta(2)=\Delta(b,a',c')$\\
+$\Delta(3)=\Delta(c,b',a')$\\
+$\Delta(4)=\Delta(a',b',c')$\\
+Il s'ensuit qu'au moins l'un des $\Delta(j)$ pour $ 1\le j\le 4$
+verifie $\frac{1}{4}|I(\Delta)|\le I(\Delta(j)$ ,car sinon,on:$|I(\Delta) , I(\Delta)$ .\\Notons $\Delta(1)$ le triangle qui verifie cette propriété .En echeangeant le rôle de $\Delta$ et $ \Delta_1$ ,on construit de meme un triangle $\Delta_2$ contenu dans $\Delta_1$ verifiant :$ \frac{1}{4}|I(\Delta_1)|\le|I(\Delta_2)|\\
+Posons $$\Delta_0=\Delta$,on obtient alors par réccurence une suite $(\Delta_n)_n$ de triangle telle que :\\
+\begin{center}
+\begin{equation*}
+     \begin{cases}
+     	\Delta_{n+1}\subset\Delta_n\\
+     	\frac{1}{4}|I(\Delta_n)|\le |I(\Delta_{n+1})|\\
+     	
+     \end{cases}
+\end{equation*}
+\end{center}
+ $diam\Delta_{n+1}=\frac{1}{2}diam(\Delta_n)$ et $L(\partial\Delta_{n+1})=\frac{1}{2}L(\partial\Delta_n)$.\\
+ Soit ${z_0}=\bigcup_{n\in\mathbb{N}}\Delta_n$.Comme $z_0 \in\Delta\subset\Omega$ et $\omega\ni \Delta.$.Ainsi f est derivable sur $z_0$ .\\Par suite $ \epsilon>0 $ donné,$r>0$ tel que si $z\in\ D(z_0,r)$,on ait $|f(z)-f(z_0)-f'(z_0)(z-z_0)|\le\epsilon|z-z_0|$ \\En particulier,comme $diam(\Delta_n )= 2^ndiam(\Delta),il existe un entier $N$ tel que si $n$\ge N,on ait \Delta_n \subset D(z_0,r).$Donc pour $n\ge N$ ,on a: $$\int_{\partial\Delta_n}f(z)dz= \int_{\partial\Delta_n}[f(z_0)-f'(z_0)(z-z_0)]dz$$.\\Ce qui precéde montre que pour $ n\ge N ,\\
+  $$$|\int_{\partial\Delta_n} f(z)dz| \le diam(\Delta_n) L(\partial\Delta_n) = \frac{\epsilon}{4^n} diam(\Delta) L(\partial\Delta_n)$$,c'est à dire $|I(\Delta)|\le \epsilon diam(\Delta_n) L(\partial\Delta)$.\\ Comme $\epsilon$ est arbitraire ,on a :$I(\Delta)=0$;\\
+  (2)Supposons que $\omega$ que w est un sommet de $\Delta$
+  (par exemple $\omega =a$)\\
+  Soit $ u \in ]a,b] $ et $ v \in ]a,c]$.Alors $I(\delta) $ est égale à la somme des integrales de f sur les triangles:\\
+  $\Delta_1 = \Delta(a,u,v),\Delta_2 = \Delta(u,b,v),\Delta_3 = \Delta(b,c,v)$.\\D'aprés (1),$I(\Delta_2)=I(\Delta_3)=0$.
+  Donc $I(\Delta)= I(\Delta_1)$\\Comme f est continue ,il existe deux nombres réels r et M tel que : si $|z-a|\le r $,on ait $|f(z)|\le r$.Si$ u $et $v$ sont assez voisin de $a$
+,on a $|I(\Delta)|\le|I(\Delta_1)|\le M .L(\partial\Delta_1).  $\\Et quand $u$ et $v$ tendent vers $a$ ,on a ,$|I(\Delta)=0$.\\Si $\omega$ est à l'interieur de $\Delta$
+En considérant le triangle $\Delta(\omega,a,c),\Delta(a,b,\omega)$ et $\Delta(\omega,b,c)$,on se ramene à (2).
+\end{theoreme}
+\begin{theoreme}(Théoreme de Cauchy)
+	Soit $\Omega$ un domaine simplement connexe ,et
+	\[
+	\begin{array}{r c l}
+		f: \Omega & \to & \mathbb{C}\\
+	\end{array}\]
+(1) Si f est holomorphe dans $\Omega$ sauf en $z_1,z_2,....,z_n$ et $\alpha$ un lacet qui entoure les$z_i$ pour $ 1\le j \le n $ .Si de plus,$\alpha_j,1\le j \le n$ est un lacet contenu dns le domaine intérieur à $\alpha$ entourant $z_j$ mais $z_k$ pour $j\neq k$ :\\
+\begin{center}
+	$$\int_{\alpha}f(z)dz = \sum_{i=1}^{n}\int_{\alpha_j}f(z)dz.$$
+\end{center}
+\end{theoreme}
+\begin{theoreme}{(Formule de Cauchy)}
+	Soit $ \Omega$ un domaine de $\mathbb{C}$ ,f une fonction holomorphe sur $\Omega$,$\alpha$ un lacet contenu dans $\Omega$ et $\Delta$ un domaine simplement connexe ayant comme $\alpha$ comme frontiére .Alors :\\
+	(1)Pour tout $z\in\Delta$,on a :$$f(z)=\frac{1}{2i\pi}\int_{\alpha}\frac{f(\xi)}{(z-\xi)^2}d\xi $$\\
+	(2)La fonction est indefiniment dérivable sur $\Delta$ et pour tout $ z\in \Delta$,on a : $$f^{(n)}(z)= \frac{n!}{2i\pi}\int_{\alpha}\frac{f(\xi)}{(z-\xi)^{n+1}}d\xi$$.($\alpha$ est parcourue dans le sens direct)\\
+	Soit $\Delta$ un domaine simplement connexe dont la frontiére est $\alpha$:\\
+	(1)Soit $\mathcal{C}(z,r)$ le cercle de centre $z$ et de rayon $r$,assez petit de tel sorte que $\mathcal{C}(z,r)\subseteq\Delta$ $(z\in \Delta)$.Alors la fonction g definie par : $$g(\xi)=\frac{f(\xi)}{z-\xi}$$ est holomorphe sur$\Delta\setminus\{z\}.$\\En vertu du théoreme de Cauchy,$$\int_{\alpha}g(\xi)d\xi=\int_{\alpha}\frac{f(\xi)}{z-\xi}d\xi=\int_{\mathcal(C)}\frac{f(\xi)}{z-\xi}d\xi.$$\\Sur le cercle $\mathcal{C}$,on a $z-\xi=r\expo{i\theta} $ avec $ \theta \in [0;2\pi].$D'où:
+	\begin{center}
+		$$\int_{\mathcal(C)}\frac{f(\xi)}{z-\xi} d\xi=i\int_{0}^{2\pi}f(z+r\expo{i\theta})d\theta.$$\\
+	\end{center}
+		Comme f est continue ,en faisant tendre $r$ vers 0 ,on a :\\
+		\begin{center}
+			$$\int_{\mathcal(C)}\frac{f(\xi)}{z-\xi}d\xi=i\lim_{r\to 0}\int_{0}^{2\pi}f(z+r\expo{i\theta})d\theta=i\int_{0}^{2\pi}\lim_{r \to 0 }f(z+r\expo{i\theta})d\theta= if(z)2\pi$$\\
+		\end{center}
+			Donc $$f(z)=\frac{1}{2i\pi}\int_{\mathcal(C)}\frac{f(\xi)}{z-\xi}d\xi=\frac{1}{2i\pi}\int_{\alpha}\frac{f(\xi)}{z-\xi}d\xi$$.\\
+			(2)Soit $h$ l'accroissement de $z \in \Delta$ de telle sorte que $ z+h\in \Delta$.En utilisant (1),on a: $$\frac{f(z+h)-f(z)}{h}=\frac{1}{2i\pi}\int_{\alpha}\frac{f(\xi)}{(\xi -z -h)(\xi -z)}d\xi $$.\\
+			On veut montrer que $$\lim_{h \to 0}\frac{f(z+h)-f(z)}{h}=\frac{1}{2i\pi}\int_{\alpha}\frac{f(\xi)}{(\xi-z)^2}d\xi$$.\\
+			Posons $$g(z)=\frac{1}{2i\pi}[\int_{\alpha}\frac{f(\xi)}{(\xi -z-h)(\xi -z)}d\xi -\int_{\alpha}\frac{f(\xi)}{(\xi -z)^2}d\xi]$$.\\On alors $$g(z)=\frac{1}{2i\pi}\int_{\alpha}\frac{hf(\xi)}{(\xi -z -h)(\xi-z)^2}d\xi$$.\\Soit $\mathcal{C}$ le cercle de centre $z$ et de rayon $r$ tel que $\mathcal{C}\subseteq \Delta.$ Choisissons h de telle sorte que $z+h \in \Delta$ et $z+h$ soit à l'interieur de $\mathcal{C}$ pour que $ |h|\le \frac{r}{2}$.On a alors :
+			\begin{center}
+				$$g(z)=\frac{1}{2i\pi}\int_{\mathcal(C)}\frac{hf(\xi)}{(\xi -z -h)(\xi -z)}d\xi$$
+			\end{center}Puisque $f$ est holomorphe ,on peut trouver $k>0$ tel que $ |f(\xi)|\le k|$.Comme $|\xi-z|=r,|\xi-z-h|\ge|\xi -z|-|h|>r-\frac{r}{2}=\frac{r}{2}.$\\On a:$$\frac{1}{|(\xi-z-h)(\xi-z)^2|}\le \frac{2}{r^3}$$\\Ainsi $$|g(z)|\le \frac{k|h|}{2\pi}.2\pi r .\frac{2}{r^3}$$\\
+	$$g(z)=\frac{2k}{r^2}|h|$$\\Et quand $|h| \to 0,|g(h)| \to 0$.Donc:\\$$f'(z)=\frac{1}{2i\pi}\int_{\alpha}\frac{f(\xi)}{(\xi -z)^2}d\xi$$		
+\end{theoreme}
+\begin{theoreme}{(théoreme de Morera)}\\
+	Soit $\Omega$ un domaine simplement connexe et
+	\[
+	\begin{array}{r c l}
+		f:\Omega & to & \mathbb{C}\\
+	\end{array}\]une fonction continue.Si $\int_{\alpha}f(z)=0$
+pour tout lacet $\alpha$ contenu dans $\Omega$,$f$ est holomorphe.\\
+\underline{Preuve:}Comme $\int_{\alpha}f(z)dz=0$,la fonction $F$ definie par $F(z)=\int_{z_0}^{z}f(\xi)d\xi(z_0 \in \Omega)$ ne depend pas du chemin reliant $z_0$ et $z$.\\Puisque
+$ f$ est continue ,$F$ est holomorphe,et on a $F'(z)=f(z).$\\
+Comme $F$ est holomorphe,$F'$definie par $$F'(z)=\int_{\alpha}\frac{F(\xi)}{(\xi -z)^2}d\xi$$ est aussi holomorphe. \\Puisque $F'(z)=f(z)$:f est aussi holomorphe.
+       
+\end{theoreme}
+    
+     
+\end{document}
