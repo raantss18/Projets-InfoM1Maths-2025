@@ -15,17 +15,17 @@ On calcule la moyenne pour chaque variable,la variance et la mediane. On a montr
 `plt.figure(figsize=(10, 4))` Initialise une figure matplotlib avec sa taille
 `for i, var in enumerate(variables):` enumerate(variables) permet de boucler sur les variables et d’obtenir :
 
-   - i : l’index (0 pour "Plastique", 1 pour "Revenus par mois")
-   - var : le nom de la variable (ex. "Plastique")
+- i : l’index (0 pour "Plastique", 1 pour "Revenus par mois")
+- var : le nom de la variable (ex. "Plastique")
 `plt.subplot(1, 2, i+1)` Crée un subplot (graphe) dans une grille de 1 ligne et 2 colonnes.Le i+1 définit la position du graphique :
 
-    - Si i=0, ça affiche le premier graphe.
-    - Si i=1, ça affiche le deuxième graphe
+- Si i=0, ça affiche le premier graphe.
+- Si i=1, ça affiche le deuxième graphe
 `sns.histplot(data[var], bins=30, kde=True, color="blue")` sns.histplot() crée un histogramme pour data[var] avec :
 
-    - bins=30 : Sépare les valeurs en 30 intervalles.
-    - kde=True : Ajoute une courbe de densité (Kernel Density Estimation).
-    - color="blue" : Histogramme en bleu.
+   - bins=30 : Sépare les valeurs en 30 intervalles.
+   - kde=True : Ajoute une courbe de densité (Kernel Density Estimation).
+   - color="blue" : Histogramme en bleu.
 `plt.title(f"Distribution de {var}")` définit le titre
 `plt.xlabel(var)` définit le nom de l'axe x
 `plt.ylabel("Valeur")` définit le nom de l'axe y
