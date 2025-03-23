@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import pandas
 import statsmodels.api as smi
 
-#Une fonction qui gÃ©nÃ¨re deux listes de donnÃ©es corrÃ©lÃ©es
+#Une fonction qui génère deux listes de données corrélées
 def gener(n):
     x=[]
     y=[]
@@ -16,7 +16,7 @@ def gener(n):
         k=k+1
     return (x,y)
 
-#Une fonction qui Ã©tudie les propriÃ©tÃ©s statistiques d'une liste
+#Une fonction qui étudie les propriétés statistiques d'une liste
 def statistika(x):
     medi=stat.median(x)
     mode=stat.mode(x)
@@ -30,29 +30,29 @@ n=int(input("Veuillez entrer la taille des deux listes que vous vouler  :"))
 x,y=gener(n)
 x_medi,x_mode,x_espe,x_vari,x_ectp=statistika(x)
 y_medi,y_mode,y_espe,y_vari,y_ectp=statistika(y)
-liste=['mÃ©diane','mode','espÃ©rance','variance','Ã©cart-type']
+liste=['médiane','mode','espérance','variance','écart-type']
 liste_x=[x_medi,x_mode,x_espe,x_vari,x_ectp]
 liste_y=[y_medi,y_mode,y_espe,y_vari,y_ectp]
-print("La covariance des deux donnÃ©es vaut",stat.covariance(x,y))
-print("Le coefficient de corrÃ©lation des deux donnÃ©es est de ", stat.correlation(x,y))
-print("******Tableau rÃ©capitulatifs de quelques propriÃ©tÃ©s statistiques des deux listes de donnÃ©es******")
-dataset=pandas.DataFrame({"PropriÃ©tÃ©s":liste,"x":liste_x,"y":liste_y})
+print("La covariance des deux données vaut",stat.covariance(x,y))
+print("Le coefficient de corrélation des deux données est de ", stat.correlation(x,y))
+print("******Tableau récapitulatifs de quelques propriétés statistiques des deux listes de données******")
+dataset=pandas.DataFrame({"Propriétés":liste,"x":liste_x,"y":liste_y})
 dataset.head()
 plt.title("Nuage de points")
 plt.scatter(x,y,color="green")
-#un tableau qui rÃ©sume la regression linÃ©aire entre les deux listes
+#un tableau qui résume la regression linéaire entre les deux listes
 A=smi.add_constant(x)
 model=smi.OLS(x,A)
 results=model.fit()
 print(results.summary())
 import seaborn as sns
-print("******Droite de regression linÃ©aire*****")
+print("******Droite de regression linéaire*****")
 sns.regplot(x=x,y=y,ci=None,color="forestgreen")
 liste_a=[x_espe,x_vari,x_ectp]
 liste_b=[0,1,1]
-lis=['espÃ©rance','variance','Ã©cart-type']
-print("******Tableau comparison des valeurs thÃ©oriques et pratiques de la premiÃ¨re liste ******")
-info=pandas.DataFrame({"PropriÃ©tÃ©s":lis,"TÃ©ories":liste_b,"RÃ©elles":liste_a})
+lis=['espérance','variance','écart-type']
+print("******Tableau comparison des valeurs théoriques et pratiques de la première liste ******")
+info=pandas.DataFrame({"Propriétés":lis,"Téories":liste_b,"Réelles":liste_a})
 info.head()
-print("L'Ã©spÃ©rance thÃ©orique de la deuxiÃ¨me liste vaut 0,sa valeur rÃ©eelle est",y_espe,".")
+print("L'éspérance théorique de la deuxième liste vaut 0,sa valeur réeelle est",y_espe,".")
 
