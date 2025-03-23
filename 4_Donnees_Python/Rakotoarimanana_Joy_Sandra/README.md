@@ -1,6 +1,7 @@
  # Statistiques sur un ensemble de données
 
 On a importé les bibliothèques pandas,matplotlib et seaborn puis un fichier csv contenant toutes les données puis on a selectionné les colonnes numeriques .
+
 On calcule la moyenne pour chaque variable,la variance et la mediane. On a montre par un schema la distribution pour 2 variables.
 
 `data=pd.read_csv("ambondrona.csv")`lit le fichier ambondrona.csv
@@ -20,13 +21,16 @@ On calcule la moyenne pour chaque variable,la variance et la mediane. On a montr
 
   - i : l’index (0 pour "Plastique", 1 pour "Revenus par mois")
   - var : le nom de la variable (ex. "Plastique")
+    
 `plt.subplot(1, 2, i+1)` Crée un subplot (graphe) dans une grille de 1 ligne et 2 colonnes.Le i+1 définit la position du graphique :
    - Si i=0, ça affiche le premier graphe.
    - Si i=1, ça affiche le deuxième graphe
+     
 `sns.histplot(data[var], bins=30, kde=True, color="blue")` sns.histplot() crée un histogramme pour data[var] avec :
    - bins=30 : Sépare les valeurs en 30 intervalles.
    - kde=True : Ajoute une courbe de densité (Kernel Density Estimation).
    - color="blue" : Histogramme en bleu.
+     
 `plt.title(f"Distribution de {var}")` définit le titre
 
 `plt.xlabel(var)` définit le nom de l'axe x
