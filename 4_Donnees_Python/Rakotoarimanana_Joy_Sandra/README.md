@@ -1,17 +1,17 @@
-#Statistiques sur un ensemble de données
+ # Statistiques sur un ensemble de données
 
 On a importé les bibliothèques pandas,matplotlib et seaborn puis un fichier csv contenant toutes les données puis on a selectionné les colonnes numeriques .
 On calcule la moyenne pour chaque variable,la variance et la mediane. On a montre par un schema la distribution pour 2 variables.
 
 `data=pd.read_csv("ambondrona.csv")`lit le fichier ambondrona.csv
 
-##Conversion en DataFrame avec renommage de colonne
+ ## Conversion en DataFrame avec renommage de colonne
 
 `.to_frame(name="Moyenne")` convertit la Série en DataFrame avec une colonne nommée "Moyenne".
 `.reset_index()` remet les noms des colonnes en place et transforme les index en une colonne.
 `.columns = ["Catégorie", "Valeur Moyenne"]` définit le nom des colonnes
 
-##Création de la figure
+ ## Création de la figure
 `plt.figure(figsize=(10, 4))` Initialise une figure matplotlib avec sa taille
 `for i, var in enumerate(variables):` enumerate(variables) permet de boucler sur les variables et d’obtenir :
 
