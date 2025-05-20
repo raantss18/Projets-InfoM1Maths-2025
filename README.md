@@ -1,57 +1,26 @@
-# Projets M1 MAFI et Mathématiques et structures de l'Université d'Antananarivo
+## Projet 10 "Série de Fourier"
 
-Bienvenue dans ce dépôt GitHub dédié aux travaux d’informatique des étudiants de M1.  
-L’objectif est de proposer, pour chaque chapitre des projets (individuels ou en groupe).
+- La série de Fourier permet d'approximer une fonction périodique $f(x)=x$ par une somme infinie de $cosinus$ et $sinus$.
+  $$S_N(x)=\frac{a_0}{2}+\sum_{n=1}^{N}\left(a_n\cos(nx)+b_n\sin(nx)\right)$$
 
----
+- Les coefficients de Fourier sont donnés par :
+$$a_n=\fract{1}{\pi}\int_{-\pi}^{\pi}f(x)\cos(nx)\dx$$
+$$b_n=\fract{1}{\pi}\int_{-\pi}^{\pi}f(x)\sin(nx)\dx$$
 
-## Organisation du dépôt
+## Phénomène de Gibbs
 
-Chaque **chapitre** est un dossier distinct. À l’intérieur, vous trouverez :
+- Lorsque $f(x)$ présente une **discontinuité** , la série de Fourier **Oscille** près de cette discontinuité et depasse la vraie valeur.
+- Ce phénomène est appelé " phénomène de Gibbs" .
 
-- **projets/** : regroupe des projets plus longs, individuels ou en groupe.
+## Observation
+
+- Les oscillations ne disparaissent jamais , même en augmente $N$ .
+- L'erreur est environ 10% d'erreur de la discontinuité.
+- Visible dans l' approximation de la fonction en **signaux carrés** et **en marche d" escalier** .
 
 
+## Conclusion 
+Pour tracer cette courbe , on va utiliser les bibliothèques python ( numpy et matplotlib,...)
 
-Dans chaque sous-dossier (exemple : `exercice1/`), vous pouvez créer :
-- Un fichier `README.md` pour décrire l’énoncé, les consignes et éventuellement donner des indications supplémentaires.
-- Les fichiers (ou notebooks) nécessaires à votre solution.
 
----
-
-## Comment contribuer
-
-1. **Forker** ce dépôt ou **cloner** si vous avez un accès direct en écriture.
-2. Créer un **nouveau dossier** pour votre groupe ou pour vous-même, dans le dossier correspondant à l’exercice ou au projet :
-   - Exemple : `chapitre1/exercices/exercice1/nom_du_groupe/`
-3. Ajouter votre code, vos ressources et un bref `README.md` si nécessaire (pour présenter votre travail).
-4. **Committer** vos modifications avec un message clair (ex. “Ajout de la solution de l’exo 1”).
-5. Proposer une **Pull Request** pour que les enseignants puissent revoir votre contribution (si vous avez forké le dépôt).
-
----
-
-## Bonnes pratiques
-
-- **Structuration** : Respectez la structure de dossiers afin de faciliter la lecture et l’évaluation.
-- **Nommage** : Donnez des noms explicites à vos fichiers (ex. `exercice1_solution.py`, `projet1_rapport.md`).
-- **Documentation** : Commentez votre code pour expliquer les points essentiels.
-- **Versionnage** : Réalisez des commits réguliers, un par fonctionnalité ou étape importante.
-- **Collaboration** : Utilisez la section *Issues* ou la page de discussion pour poser vos questions et proposer des améliorations.
-
----
-
-## Évaluation et suivi
-
-- Les enseignants et les tuteurs surveilleront l’activité du dépôt.  
-- Les retours seront donnés via des commentaires GitHub sur les *Pull Requests* ou directement sur le code.  
-
----
-
-## Ressources utiles
-
-- [Documentation Git](https://git-scm.com/doc)  
-- [Documentation GitHub](https://docs.github.com/)  
-- [Aide au formatage Markdown](https://www.markdownguide.org/)
-
----
 

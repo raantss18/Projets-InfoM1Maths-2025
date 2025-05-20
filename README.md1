@@ -1,0 +1,48 @@
+#  Projet : Transformée de Fourier Discrète (TFD) en Python
+
+##  Introduction
+Ce projet implémente la **Transformée de Fourier Discrète (TFD)** en Python pour analyser le contenu fréquentiel d'un signal.  
+Il comprend :
+- La génération d'un **signal sinusoïdal**.
+- L'**implémentation d'une TFD brute-force**.
+- La **sauvegarde des résultats dans un fichier CSV**.
+- L'**affichage du spectre fréquentiel** du signal.
+
+##  Objectif du Projet
+L'objectif est de comprendre comment un signal temporel peut être décomposé en fréquences à l'aide de la **Transformée de Fourier Discrète**.
+
+Le projet permet de :
+ **Visualiser le spectre fréquentiel** d'un signal. 
+ **Comparer la TFD manuelle avec la FFT rapide** (`numpy.fft.fft`). 
+ **Enregistrer et analyser les résultats** sous forme de données CSV.
+
+
+##  Théorie : Transformée de Fourier Discrète (TFD)
+
+###  **Définition Mathématique**
+La **Transformée de Fourier Discrète (TFD)** est une transformation qui convertit un signal **temporel** \( x[n] \) en signal **fréquentiel** \( X[k] \).
+
+Elle est définie par la formule :
+
+$$
+X[k] = \sum_{n=0}^{N-1} x[n] \cdot e^{-i 2\pi kn/N}
+$$
+
+où :
+- \( x[n] \) est le **signal d’entrée** (dans le domaine temporel).
+- \( X[k] \) est la **réponse fréquentielle** du signal.
+- \( N \) est le **nombre d’échantillons**.
+- \( k \) est l'**indice fréquentiel**.
+
+L’inverse de cette transformation est la **Transformée de Fourier Inverse (TFI)**, qui permet de reconstruire le signal à partir de son spectre.
+
+
+###  Prérequis
+Ce projet nécessite Python et les bibliothèques suivantes :
+- `numpy`
+- `matplotlib`
+- `csv`
+
+## Conclusion générale
+La Transformée de Fourier Discrète est un outil puissant en traitement du signal qui permet de transformer un signal temporel en spectre fréquentiel.
+Les résultats obtenus montrent son efficacité et ** son importance en analyse de signaux, télécommunications, audio et traitement d’images.**
