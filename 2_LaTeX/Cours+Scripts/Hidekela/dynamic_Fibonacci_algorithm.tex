@@ -1,0 +1,173 @@
+\documentclass{article}
+
+\usepackage[english]{babel}
+\usepackage{amsmath, amsfonts}
+\usepackage{graphicx}
+\usepackage{minted}
+\usepackage[a4paper,margin=3cm]{geometry}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\definecolor{darkviolet}{RGB}{86,32,140}
+
+\newcommand{\inlinecode}[1]{\mintinline[style=default,breaklines]{python}|#1|}
+% avoid showing a\%b where '\' is visible inside inline code
+\newcommand{\moduloinsidecode}[2]{\inlinecode{#1}\%\inlinecode{#2}}
+
+\renewcommand{\familydefault}{phv}
+
+\hypersetup{
+	colorlinks,
+	breaklinks,
+	urlbordercolor=white,
+	urlcolor=darkviolet,
+	pdftitle={Dynamic Programming: Application to Fibonacci algorithm},
+	pdfauthor={Hidekela}
+}
+	
+\title{Dynamic Programming: Application to Fibonacci Algorithm}
+\author{Hidekela - MAFI}
+
+\begin{document}
+
+	\maketitle
+
+	\section{About}
+
+		This course use some contents from \href{https://goalkicker.com/AlgorithmsBook}{Algorithms Notes for Professionals} book, released under Creative Commons BY-SA.
+		\\
+		\\
+		We will use Python language to write codes but you can translate those to any other languages if you want to.
+	
+	\section{Introduction}
+
+		The basic idea behind dynamic programming is breaking a complex problem down to several small and simple problems that are repeated. If you can identify a simple subproblem that is repeatedly calculated, odds are there is a dynamic programming approach to the problem. 
+		\\
+		\\
+		Fibonacci Numbers are a prime subject for dynamic programming as the traditional recursive approach makes a lot of repeated calculations. In these examples I will be using the base case of $ f(0) = f(1) = 1 $.
+		
+	\section{Implementation}
+		
+		Here is an example recursive tree for \inlinecode{fibonacci(4)}, note the repeated computations (\ref{Recursive tree for Fibonacci}):
+		
+		\begin{figure}[htbp] % [htbp] puts it after above and before below
+						
+			\includegraphics[width=\columnwidth]{naive-fibonacci-tree.png}
+			
+			\caption{Recursive tree for Fibonacci}
+			
+			\label{Recursive tree for Fibonacci}
+			
+		\end{figure}
+	
+		\subsection[Naive]{Naive method (Non-Dynamic Programming)}
+			
+			$O(2^n)$ Runtime Complexity, $O(n)$ Stack complexity
+			
+			\begin{minted}[linenos,style=monokai,bgcolor=darkgray,breaklines]{python}
+def fibonacci(n):
+	if n < 2:
+		return 1
+		
+	return fibonacci(n-1) + fibonacci(n-2)
+			\end{minted}
+			\\
+			This is the most intuitive way to write the problem. At most the stack space will be $O(n)$ as you descend the ﬁrst recursive branch making calls to \inlinecode{fibonacci(n-1)} until you hit the base case $ n < 2 $.
+			\\
+			\\
+			The $O(2^n)$ runtime complexity proof that can be seen here: Computational complexity of Fibonacci Sequence. The main point to note is that the runtime is exponential, which means the runtime for this will double for every subsequent term, \inlinecode{fibonacci(15)} will take twice as long as \inlinecode{fibonacci(14)}.
+			
+		\subsection[Memoized]{Memoized}
+		
+			$O(n)$ Runtime Complexity, $O(n)$ Space complexity, $O(n)$ Stack complexity
+			
+			\begin{minted}[linenos,style=monokai,bgcolor=darkgray,breaklines]{python}
+memo = []
+memo.append(1) # f(1) = 1
+memo.append(1) # f(2) = 1
+
+def fibonacci(n):
+	if len(memo) > n:
+		return memo[n]
+		
+	result = fibonacci(n-1) + fibonacci(n-2)
+	
+	memo.append(result) # f(n) = f(n-1) + f(n-2)
+	
+	return result
+			\end{minted}
+			\\
+			With the memoized approach we introduce an array that can be thought of as all the previous function calls. The location \inlinecode{memo[n]} is the result of the function call \inlinecode{fibonacci(n)}. This allows us to trade space complexity of $O(n)$ for a $O(n)$ runtime as we no longer need to compute duplicate function calls.
+	
+		\subsection[IDP]{Iterative Dynamic Programming}
+		
+			$O(n)$ Runtime complexity, $O(n)$ Space complexity, No recursive stack
+			
+			\begin{minted}[linenos,style=monokai,bgcolor=darkgray,breaklines]{python}
+def fibonacci(n):
+	memo = [1,1] # f(0) = 1, f(1) = 1
+	
+	for i in range(2, n+1):
+		memo.append(memo[i-1] + memo[i-2])
+		
+	return memo[n]
+			\end{minted}
+			\\
+			If we break the problem down into it's core elements you will notice that in order to compute \inlinecode{fibonacci(n)} we need \inlinecode{fibonacci(n-1)} and \inlinecode{fibonacci(n-2)}. Also we can notice that our base case will appear at the end of that recursive tree as seen above.
+			\\
+			\\
+			With this information, it now makes sense to compute the solution backwards, starting at the base cases and working upwards. Now in order to calculate \inlinecode{fibonacci(n)} we ﬁrst calculate all the ﬁbonacci numbers up to and through $n$.
+			\\
+			\\
+			This main beneﬁt here is that we now have eliminated the recursive stack while keeping the $O(n)$ runtime. Unfortunately, we still have an $O(n)$ space complexity but that can be changed as well.
+	
+		\subsection[AIDP]{Advanced Iterative Dynamic Programming}
+		
+			$O(n)$ Runtime complexity, $O(1)$ Space complexity, No recursive stack
+			
+			\begin{minted}[linenos,style=monokai,bgcolor=darkgray,breaklines]{python}
+def fibonacci(n):
+	memo = [1,1] # f(1) = 1, f(2) = 1
+	
+	for i in range (2, n):
+		memo[i%2] = memo[0] + memo[1]
+		
+	return memo[n%2]
+			\end{minted}
+			\\
+			As noted above, the iterative dynamic programming approach starts from the base cases and works to the end result. The key observation to make in order to get to the space complexity to $O(1)$ (constant) is the same observation we made for the recursive stack - we only need \inlinecode{fibonacci(n-1)} and \inlinecode{fibonacci(n-2)} to build \inlinecode{fibonacci(n)}. This means that we only need to save the results for \inlinecode{fibonacci(n-1)} and \inlinecode{fibonacci(n-2)} at any point in our iteration.
+			\\
+			\\
+			To store these last 2 results I use an array of size 2 and simply ﬂip which index I am assigning to by using \moduloinsidecode{i}{2} which will alternate like so: \inlinecode{0, 1, 0, 1, 0, 1, ...,} \moduloinsidecode{i}{2}.
+			\\
+			\\
+			I add both indexes of the array together because we know that addition is commutative (\inlinecode{5 + 6 = 11} and \inlinecode{6 + 5 = 11}). The result is then assigned to the older of the two spots (denoted by \moduloinsidecode{i}{2}). The ﬁnal result is then stored at
+			the position \moduloinsidecode{n}{2}.
+			
+	\section{Notes}
+	
+		It is important to note that sometimes it may be best to come up with a iterative memoized solution for functions that perform large calculations repeatedly as you will build up a cache of the answer to the function calls and subsequent calls may be $O(1)$ if it has already been computed.
+		\\
+		\\
+		With \textbf{mathematical aprroch}, we can surely get $O(1)$. Fibonacci Sequence $(F_n)_n$ can be defined as follow:
+		
+		\[
+			\forall n \in \mathbb{N}, F_n = \frac{1}{\sqrt{5}} 
+			\left(
+				\left(\frac{1 + \sqrt{5}}{2}\right)^n - \left(\frac{1 - \sqrt{5}}{2}\right)^n
+			\right)
+		\]
+		\\
+		\\
+		Thus, we have $O(1)$ Runtime complexity, $O(1)$ Space complexity, No recursive stack
+		
+		\begin{minted}[linenos,style=monokai,bgcolor=darkgray,breaklines]{python}
+from math import sqrt
+
+def fibonacci(n):
+	return int( (1/sqrt(5)) * ( ((1+sqrt(5)) / 2)**n - ((1-sqrt(5)) / 2)**n ) )
+		\end{minted}
+		\\
+		However, we may encountered OverflowError or value precision can be affected due to large calculations. 
+			
+\end{document}
