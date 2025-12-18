@@ -1,0 +1,22 @@
+{
+  "model_name": "Random Forest",
+  "target": "Academic Performance Change",
+  "timestamp": "20251216_211545",
+  "metrics": {
+    "f1_score": 0.3279901139073622,
+    "accuracy": 0.34,
+    "precision": 0.3219612250409035,
+    "recall": 0.34,
+    "error_rate": 0.6599999999999999
+  },
+  "features": [
+    "Gender",
+    "Age",
+    "Education Level",
+    "Screen Time (hrs/day)",
+    "Sleep Duration (hrs)",
+    "Physical Activity (hrs/week)",
+    "Stress Level",
+    "Anxious Before Exams"
+  ]
+}
