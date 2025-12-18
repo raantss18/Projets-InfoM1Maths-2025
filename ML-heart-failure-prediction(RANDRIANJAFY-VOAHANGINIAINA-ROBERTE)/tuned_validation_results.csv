@@ -1,0 +1,4 @@
+accuracy,f1,recall,precision,roc_auc,model,best_params,cv_auc,time
+0.85,0.8,0.9473684210526315,0.6923076923076923,0.9422336328626445,LogisticRegression,"{""clf__C"": 0.01291549665014884, ""clf__penalty"": ""l2"", ""clf__solver"": ""lbfgs""}",0.8568989898989899,5.96
+0.85,0.7692307692307693,0.7894736842105263,0.75,0.9345314505776636,GradBoost,{},,0.0
+0.85,0.7428571428571429,0.6842105263157895,0.8125,0.920410783055199,RandomForest,"{""clf__n_estimators"": 200, ""clf__min_samples_split"": 2, ""clf__max_depth"": 10}",0.9102866161616161,21.98
