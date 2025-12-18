@@ -1,0 +1,334 @@
+\documentclass[11pt,twoside,openany]{book}
+%pour les expressionmathématiques
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+%changer les dimension de la mise en page
+\geometry{left=3cm, right=3cm, top=2.5cm, bottom=2.5cm}
+
+% Définition des environnements Exercice et Solution
+\newtheorem{exercice}{Exercice}[chapter]%pourutilisation de théorème
+\newenvironment{solution}{\par\textbf{Solution :}\par\small}{\normalsize\par}
+
+\begin{document}
+%frontmatter pour avoir des chiffres romains
+\frontmatter
+\title{Recueil d'Exercices avec Solutions}
+\author{Mathématiques Avancées}
+\date{\today}
+\maketitle
+
+\tableofcontents
+
+\mainmatter %utilise des numéro pour les chapitre
+
+\chapter{Topologie Générale}
+\section{Espaces métriques}
+
+\begin{exercice}
+Soit $(X,d)$ un espace métrique et $x \in X$, $r > 0$. Démontrer que la boule ouverte 
+$$B(x,r) = \{ y \in X \mid d(x,y) < r \}$$ 
+est un ensemble ouvert.
+\end{exercice}
+
+\begin{solution}
+Pour montrer que $B(x,r)$ est ouvert, il faut vérifier que pour tout point $z \in B(x,r)$, il existe un réel $\epsilon > 0$ tel que la boule $B(z,\epsilon)$ soit entièrement contenue dans $B(x,r)$.
+
+\medskip %pour espace vertical moyen
+
+Soit $z \in B(x,r)$. Par définition, $d(x,z) < r$. Posons 
+\[
+\epsilon = r - d(x,z) \quad (\epsilon > 0).
+\]
+Pour tout point $y \in B(z,\epsilon)$, on a $d(z,y) < \epsilon$. En appliquant l'inégalité triangulaire, on obtient :
+\[
+d(x,y) \leq d(x,z) + d(z,y) < d(x,z) + \epsilon = d(x,z) + (r - d(x,z)) = r.
+\]
+Ainsi, $y \in B(x,r)$, c'est-à-dire que
+\[
+B(z,\epsilon) \subset B(x,r).
+\]
+Comme cela est vrai pour tout $z \in B(x,r)$, la définition d'un ouvert est satisfaite. On conclut donc que la boule ouverte $B(x,r)$ est bien un ouvert.
+\end{solution}
+
+\begin{exercice}
+Soit $\{ U_i \}_{i \in I}$ une famille d'ouverts dans un espace topologique $X$. Montrez que la réunion $\bigcup_{i\in I} U_i$ est un ouvert de $X$.
+\end{exercice}
+
+\begin{solution}
+Par définition, un ensemble $U$ est ouvert si pour tout point $x \in U$, il existe un voisinage de $x$ contenu dans $U$. Prenons un point quelconque $x \in \bigcup_{i\in I} U_i$. Il existe alors un indice $j \in I$ tel que $x \in U_j$. Comme $U_j$ est ouvert, il existe un voisinage $V$ de $x$ tel que
+\[
+V \subset U_j.
+\]
+Puisque $U_j \subset \bigcup_{i\in I} U_i$, on a
+\[
+V \subset \bigcup_{i\in I} U_i.
+\]
+Cela montre que chaque point de $\bigcup_{i\in I} U_i$ possède un voisinage contenu dans l'union, et donc $\bigcup_{i\in I} U_i$ est un ouvert.
+\end{solution}
+
+\chapter{Calcul Différentiel}
+\section{Dérivation et règles de différentiation}
+
+\begin{exercice}
+Calculer la dérivée de la fonction 
+$$f(x) = e^{2x} \cdot \cos(x).$$
+\end{exercice}
+
+\begin{solution}
+Pour dériver $f(x)=e^{2x}\cos(x)$, nous utilisons la règle du produit qui stipule que si
+\[
+f(x)=u(x)v(x) \quad \text{alors} \quad f'(x)=u'(x)v(x)+u(x)v'(x).
+\]
+
+\medskip %espace moyen
+
+Posons :
+\[
+u(x)=e^{2x} \quad \text{et} \quad v(x)=\cos(x).
+\]
+
+Calculons leurs dérivées :
+\[
+u'(x)=\frac{d}{dx}(e^{2x}) = 2e^{2x} \quad (\text{règle de la chaîne}),
+\]
+\[
+v'(x)=\frac{d}{dx}(\cos(x)) = -\sin(x).
+\]
+
+Ainsi,
+\[
+f'(x)=2e^{2x}\cos(x) + e^{2x}(-\sin(x)) = e^{2x}\left(2\cos(x)-\sin(x)\right).
+\]
+
+La dérivée de $f(x)$ est donc 
+\[
+f'(x)=e^{2x}(2\cos(x)-\sin(x)).
+\]
+\end{solution}
+
+\begin{exercice}
+Prouvez que si une fonction $f$ est dérivable en un point $a$, alors elle est continue en ce point.
+\end{exercice}
+
+\begin{solution}
+Si $f$ est dérivable en $a$, alors la dérivée
+\[
+f'(a)=\lim_{x \to a}\frac{f(x)-f(a)}{x-a}
+\]
+existe et est finie. Cela signifie que pour $x$ proche de $a$, on peut écrire :
+\[
+f(x)-f(a)=f'(a)(x-a)+\epsilon(x)(x-a),
+\]
+où $\epsilon(x)$ tend vers 0 lorsque $x \to a$. 
+
+En passant à la limite, on obtient :
+\[
+\lim_{x \to a}\left[f(x)-f(a)\right]=\lim_{x \to a}\left[f'(a)(x-a)+\epsilon(x)(x-a)\right]=0.
+\]
+Cela signifie que
+\[
+\lim_{x \to a} f(x)=f(a),
+\]
+c'est-à-dire que $f$ est continue en $a$.
+\end{solution}
+
+\chapter{Théorie des Nombres}
+\section{Nombres premiers et résultats fondamentaux}
+
+\begin{exercice}
+Démontrez qu'il existe une infinité de nombres premiers.
+\end{exercice}
+
+\begin{solution}
+Supposons, par l'absurde, qu'il n'existe qu'un nombre fini de nombres premiers, notés $p_1, p_2, \dots, p_n$. Considérons alors le nombre
+\[
+N=p_1p_2\cdots p_n+1.
+\]
+Pour tout $i \in \{1,2,\dots,n\}$, on a :
+\[
+N\equiv 1 \pmod{p_i}.
+\]
+Autrement dit, aucun des nombres premiers $p_i$ ne divise $N$. Cependant, tout entier supérieur à 1 possède au moins un facteur premier. Ainsi, $N$ doit avoir un facteur premier qui ne figure pas dans la liste initiale, ce qui contredit l'hypothèse que la liste contenait tous les nombres premiers. On conclut donc qu'il existe une infinité de nombres premiers.
+\end{solution}
+
+\begin{exercice}
+Démontrez le théorème de Wilson : pour tout nombre premier \(p\), 
+\[
+(p-1)! \equiv -1 \pmod{p}.
+\]
+\end{exercice}
+
+\begin{solution}
+Soit \(p\) un nombre premier. Considérons l'ensemble des entiers \(\{1, 2, \dots, p-1\}\). Dans \(\mathbb{Z}/p\mathbb{Z}\), chaque entier non nul possède un inverse unique. Pour la majorité des entiers \(a\), il existe un unique \(b \neq a\) tel que \(ab\equiv1\pmod{p}\).
+
+Les seuls entiers qui sont leur propre inverse (i.e. \(a^2\equiv 1\pmod{p}\)) sont \(a\equiv 1\) et \(a\equiv p-1\). En effet, si \(a^2\equiv 1\), alors \((a-1)(a+1)\equiv 0\) et, puisque \(p\) est premier, on obtient \(a\equiv 1\) ou \(a\equiv -1\pmod{p}\).
+
+Ainsi, dans le produit \((p-1)!=1\cdot2\cdot3\cdots (p-1)\), tous les termes autres que \(1\) et \(p-1\) se regroupent par paires \((a,b)\) telles que \(ab\equiv1\pmod{p}\). Leur contribution au produit est donc \(1\).
+
+Il reste alors :
+\[
+(p-1)! \equiv 1\cdot (p-1) \equiv p-1 \pmod{p}.
+\]
+Or, \(p-1 \equiv -1 \pmod{p}\). On obtient ainsi le résultat souhaité :
+\[
+(p-1)! \equiv -1 \pmod{p}.
+\]
+\end{solution}
+
+\chapter{Théorie des Groupes}
+\section{Groupes finis et sous-groupes}
+
+\begin{exercice}
+Soit $G$ un groupe fini et $H$ un sous-groupe de $G$. Prouvez que l'ordre de $H$ divise l'ordre de $G$.
+\end{exercice}
+
+\begin{solution}
+Le théorème de Lagrange affirme que si $H$ est un sous-groupe de $G$, alors les classes à gauche de $H$ forment une partition de $G$. Si l'on note $[G : H]$ le nombre de ces classes, alors :
+\[
+|G| = [G : H] \cdot |H|.
+\]
+Puisque $[G : H]$ est un entier, il en résulte que $|H|$ divise $|G|$.
+\end{solution}
+
+\begin{exercice}
+Soit $G$ un groupe abélien fini et $g \in G$. Montrez que l'ordre de $g$ divise l'ordre de $G$.
+\end{exercice}
+
+\begin{solution}
+Considérons le sous-groupe cyclique $\langle g \rangle$ généré par $g$. Par définition, l'ordre de $g$ est le nombre d'éléments distincts de $\langle g \rangle$. D'après le théorème de Lagrange appliqué à ce sous-groupe, on a :
+\[
+|\langle g \rangle| \mid |G|.
+\]
+Ainsi, l'ordre de $g$ divise l'ordre de $G$.
+\end{solution}
+
+\chapter{Suites numériques}
+\section{Étude de suites récurrentes et suite de Fibonacci}
+
+\begin{exercice}
+Soit $(u_n)$ une suite définie par 
+\[
+u_1=1 \quad \text{et} \quad u_{n+1}=\frac{1}{2}u_n+1.
+\]
+Démontrez que la suite $(u_n)$ converge et trouvez sa limite.
+\end{exercice}
+
+\begin{solution}
+\textbf{Étape 1 : Détermination de la limite candidate.}  
+Supposons que la suite converge vers une limite $L$. En passant à la limite dans la relation de récurrence, on a :
+\[
+L = \frac{1}{2}L + 1.
+\]
+En résolvant cette équation, on trouve :
+\[
+L - \frac{1}{2}L = 1 \quad \Longrightarrow \quad \frac{1}{2}L = 1 \quad \Longrightarrow \quad L = 2.
+\]
+
+\medskip %espace moyen
+
+\textbf{Étape 2 : Justification de la convergence.}  
+Pour prouver que $(u_n)$ converge, on peut montrer que la suite est monotone et majorée.
+
+\medskip %espace moyen
+
+\underline{Monotonie :}  
+Calculons la différence :
+\[
+u_{n+1} - u_n = \frac{1}{2}u_n + 1 - u_n = 1 - \frac{1}{2}u_n.
+\]
+Si l'on peut montrer que $u_n \leq 2$ pour tout $n$, alors $1-\frac{1}{2}u_n \geq 0$, ce qui implique que la suite est croissante.
+
+\medskip
+
+\underline{Majoration :}  %uderline:souligné
+On a $u_1=1 \leq 2$. Supposons que $u_n \leq 2$. Alors,
+\[
+u_{n+1} = \frac{1}{2}u_n + 1 \leq \frac{1}{2}\cdot 2 + 1 = 2.
+\]
+Par récurrence, $u_n \leq 2$ pour tout $n$. 
+
+Ainsi, la suite est croissante et majorée par 2, ce qui implique par le théorème de la convergence monotone que $(u_n)$ converge vers la limite trouvée, à savoir 2.
+\end{solution}
+\begin{exercice}
+Soit la suite de Fibonacci \((F_n)\) définie par 
+\[
+F_0=0,\quad F_1=1,\quad \text{et} \quad F_{n+2}=F_{n+1}+F_n \quad \text{pour } n\ge 0.
+\]
+Démontrer que la solution générale de cette récurrence s'exprime par la formule de Binet, c'est-à-dire
+\[
+F_n = \frac{1}{\sqrt{5}}\left[\left(\frac{1+\sqrt{5}}{2}\right)^n - \left(\frac{1-\sqrt{5}}{2}\right)^n\right].
+\]
+
+\end{exercice}
+
+\begin{solution}
+Pour résoudre la récurrence linéaire homogène
+\[
+F_{n+2}=F_{n+1}+F_n,
+\]
+nous cherchons une solution de la forme \(F_n=r^n\). En substituant dans la relation, on obtient :
+\[
+r^{n+2}=r^{n+1}+r^n.
+\]
+En divisant par \(r^n\) (pour \(r\neq 0\)), on a :
+\[
+r^2 = r + 1,
+\]
+ce qui se réécrit sous la forme du polynôme caractéristique :
+\[
+r^2 - r - 1 = 0.
+\]
+Les solutions de cette équation quadratique sont données par la formule quadratique :
+\[
+r=\frac{1\pm\sqrt{1+4}}{2}=\frac{1\pm\sqrt{5}}{2}.
+\]
+Nous notons :
+\[
+\varphi = \frac{1+\sqrt{5}}{2} \quad \text{et} \quad \psi = \frac{1-\sqrt{5}}{2}.
+\]
+La solution générale de la récurrence est donc :
+\[
+F_n = A\varphi^n + B\psi^n,
+\]
+où \(A\) et \(B\) sont des constantes déterminées par les conditions initiales.
+
+\medskip
+
+\textbf{Détermination de \(A\) et \(B\):} %text gras
+
+Pour \(n=0\):
+\[
+F_0 = A\varphi^0 + B\psi^0 = A + B = 0,
+\]
+d'où \(B = -A\).
+
+Pour \(n=1\):
+\[
+F_1 = A\varphi + B\psi = A\varphi - A\psi = A(\varphi - \psi) = 1.
+\]
+Ainsi,
+\[
+A = \frac{1}{\varphi - \psi}.
+\]
+Or,
+\[
+\varphi - \psi = \frac{1+\sqrt{5}}{2} - \frac{1-\sqrt{5}}{2} = \sqrt{5}.
+\]
+On en déduit :
+\[
+A=\frac{1}{\sqrt{5}} \quad \text{et} \quad B=-\frac{1}{\sqrt{5}}.
+\]
+
+\medskip
+
+\textbf{Conclusion:}  
+La solution générale s'écrit alors :
+\[
+F_n = \frac{1}{\sqrt{5}}(\varphi^n - \psi^n) = \frac{1}{\sqrt{5}}\left[\left(\frac{1+\sqrt{5}}{2}\right)^n - \left(\frac{1-\sqrt{5}}{2}\right)^n\right].
+\]
+Ceci est la formule de Binet pour la suite de Fibonacci.
+\end{solution}
+
+\backmatter
+
+\end{document}

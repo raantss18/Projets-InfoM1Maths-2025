@@ -1,0 +1,72 @@
+\documentclass{book}
+\usepackage{amsmath,amsfonts}
+\usepackage{monstyle}
+\usepackage{appendix}
+\begin{document}
+   \montitre{\texterouge{VECTEURS GAUSSIENS}}
+   \date{02/03/2025}
+   \tableofcontents
+   \newpage
+	
+	\chapter{Définitions et propriétés}
+	  
+	   Soit X une variable aléatoire de loi $\mathcal{N}(m,\sigma^2),m \in\mathbb{R}$.\\Sa fonction caractéristique est :\\$F_X(u)=$$\mathrm{e}^{imu - ((1/2)\sigma^2 u^2)}$\\Si$ \sigma \mapsto 0, alorsF_x(u)\mapsto \mathrm{e}^{imu}$\\\\On reconnaît la fonction caractéristique  de la variable aléatoire constante égale à m.Par convention, on dira que c'est également une variable aléatoire de loi $\mathcal{N}(m,0)$.Dans ce cas,on parle de variable aléatoire Gaussienne dégénérée.
+	 
+	\section{proposition} 
+		
+		   Soit $(X_n)_n\in\mathbb{N}^*$  une suite de variables aléatoires  gaussiennes de loi $\mathcal{N}(m_n,\sigma^2_n)$.\\ La suite converge en loi si et seulement si $m_n\mapsto m$ et $\sigma_n\mapsto\sigma$ quand n $\mapsto\infty$.\\
+		La loi limite est la loi $\mathcal{N}(m,\sigma^2$).\\Dans la suite,on utilise les notions suivantes :\\soit $D>1$,on note $<.,.>$ le produit scalaire et $|.|$ la norme sur $\mathbb{R^d}$.\\Pour une matrice M=$(M_(ij))$ avec $(1<i<d,1<j<p)$ et pour V=${(V_1,...,V_p)} \in \mathbb{R}^p$ et pour u={$(u_1,...,u_p)$},on a:\\\\ $<u, M_v> = <M\prime u, v>$ (M$\prime$:transposé de M).
+		\section{Définition vecteur Gaussien}
+		Un vecteur aléatoire X à valeurs dans $\mathbb{R}^d$ est \emph{un vecteur gaussien} si toute combinaison linéaire de ses coordonnées est une variable aléatoire réelle gaussienne :\\pour tout a $\in$ $\mathbb{R}^d$, la loi de $<a,X>$ est \emph{une loi Gaussienne}.\\\\$<a,X >=\sum_{k=1}^{d}(a_k X_k)$\\\\En particulier,en choisissant a=$e_i$= (0,0,...,0,1,0,...,0).On obtient que si X=$(X_1,X_2,...,X_d)$ est un vecteur gaussien alors $<a,X>=X_i$ est une variable aléatoire gaussienne.
+		
+		\section{définition de la matrice de covariance} \emph{La matrice de covariance de deux variables aléatoires véctorielles} de carré intégrable,X à valeurs dans $\mathbb{R}^n$,la matrice\\\\Cov(X,Y)=V= $(V_(kl))$ avec(1$\leq$k$\leq$d,1$\leq$l$\leq$n)\\\\\section{vecteurs aléatoires et vecteur Gaussien}Le vecteur aléatoire X à valeurs dans $\mathbb{R^d}$ est \emph{un vecteur Gaussien} si et seulement si il existe un vecteur $\mu \in \mathbb{R^d}$ et une matrice V de taille d*d,symétrique positive V$\prime$ = V et $<a,Vx>$ positive pour tout x $\in \mathbb{R}^d$  tels que:\\\\$F_X(t)=\mathrm{e}^{(i<\mu,t> - ((1/2)<t,Vt>)}$\\De plus,X est de carré intégrable et on a $\mu$=E(X) et V=(X,X)\\Enfin,pour tout a $\in \mathbb{R}^d$ ,la loi de la variable aléatoire réelle $<a,X>$ est \emph{la loi Gaussienne}$\mathcal{N}(<a,\mu>,<a,Va>)$\\Si X est un vecteur Gaussien de moyenne $\mu$ et de matrice de covariance V,on note sa loi \emph{N}($\mu$,V).\\\\Soit (X,Y) est un vecteur Gaussien.\\Alors,on a X est indépendant de Y si et seulement si cov(X,Y)=0.\\\\\
+		\section{Vecteur quotient}
+		On considère une transformation affine de $\mathbb{R}^d$ dans $\mathbb{R}^n$ : x $\mapsto$Mx+T,avec M est une matrice déterminante de $\mathbb{R}^n$.\\Soit X un vecteur gaussien à valeurs dans $\mathbb{R}^d$ et de loi $\mathcal{N}(\mu,V)$.\\\\La variable aléatoire MX+T est un vecteur quotient à valeurs dans $\mathbb{R}^n$.\\De plus,on a \emph{L}(MX+T) = $\mathcal{N}(M\mu+t,MVM\prime)$
+		
+		\section{vecteur gaussien dégénéré}
+		  Soit V une matrice symétrique positive de taille d*d,et $\mu\in \mathbb{R}^d$.\\Il existe un vecteur Gaussien de loi $\mathcal{N}(\mu,V)$.Si det V = 0,On parle de \emph{vecteur Gaussien dégénéré}.
+		
+		\section{La loi conditionnelle}
+		  Soit(X,Y) un vecteur gaussien(de dimension d+n).\\On suppose que la matrice $cov(X,Y)$ est inversible(le vecteur Y est non dégénéré).\\\emph{La loi conditionnelle de X sachant Y}est la loi gaussienne $\mathcal{N}(E(X|Y),M)$.De plus,on a: \\$E(X|Y) = E(X) + Cov(x,y) Cov(Y,Y)^(-^1)  (Y- E(Y))$ \\et\\M = $cov(X,X)- Cov(x,y) Cov(Y,Y)^(-^1)  cov(Y,X)$.\\On remarque que la matrice M est déterministe,alors que $E(X|Y)$ est aléatoire.Cette dernière est une fonction linéaire de Y.
+		
+		
+        \chapter{Théorème central limite vectoriel}
+        \section{Théorème}
+         Soit $X^n$ avec $n>2$,une suite de variables aléatoires à valeurs dans $\mathbb{R}^d$,indépendantes de même loi et de carré intégrable.On pose $\mu=E(X_1)$,V=$cov(X_1,X_1)$ et $\bar{X} =(1/n)\sum_{k=1}^{n}(X_k)$.Alors,\\\\$\sqrt{n}(X-\mu)$ converge en loi vers $\mathcal{N}(0,V)$
+        \section{corollaire}
+          Soit $X^n$ avec $n>2$,une suite de variable aléatoire à valeurs dans $\mathbb{R}^d$,de même loi et de carré intégrable.On pose $\mu = E(X_1)$,V=$cov(X_1,X_1)$ et $\bar{X} =(1/n)\sum_{k=1}^{n}(X_k)$.\\Soit g une fonction mesurable de $\mathbb{R}^d$ dans $\mathbb{R}^p$ continue et différentiable en $\mu$\\On pose M=$\frac{\partial g(\mu)}{\partial x}$ et V=$(\frac{\partial g(\mu)}{\partial x})$.\\On a alors\\\\g($\bar{X}$) converge presque sûrement vers g($\mu$)\\et\\$\sqrt{n}(g(\bar{X})-g(\mu))$ converge en loi vers $\mathcal{N}(0,M)$
+     \chapter{la loi forte des grands nombres}
+        Soit $\mu \in \mathbb{R}$ et $\sigma> 0$.On considère une suite$(X_k)_(k>2)$ de variables aléatoires indépendantes et de loi $\mathcal{N}(\mu,\sigma^2)$.On pose\\$\bar{X}$ = $(1/n)\sum_{k=1}^{n}(X_k)$ qui est la moyenne empirique et $V_n=((1/(n-1)\sum_{k=1}^{n}((X_k-\bar{X})^2)$ la variance empirique corrigé.On peut l'écrire de la façon suivante $v_n=(n/n-1) (S_n)²$ avec $(S_n)^2 = (1/n)\sum_{k=1}^{n}((X_k)^2-\bar{X}^2)$\\Par la loi forte des Grands Nombres,on en déduit que le couple$(\bar{X},V_n)$ converge presque sûrement vers $(\mu,\sigma^2)$.On donne en fait la loi du couple $(\bar{X},V_n)$.
+      \section{quelques propriétés}
+         Les variables $\bar{X}$ et $V_n$ sont indépendantes.\\\\$\bar{X}$ suit la loi normale de paramètres $\mu$ et $\frac{\sigma^2}{n}$.\\\\$(n-1)\frac{V_n}{\sigma^2}= n \frac{S_n^2}{\sigma^2}$ suit la loi de Khi-Deux de degré de liberté n-1\\\\On en déduit de la loi de Khi-Deux que:\\\\$E(V_n)=\sigma^2$ et $var(V_n)= \frac{2\sigma^4}{n-1}$
+      
+      \begin{appendices}
+        \chapter{La loi Gaussienne ou loi normale}
+        	  
+         Le célèbre mathématicien allemand Carl Friedrich Gauss conçoit une loi statistique continue,appelée loi normale ou loi de Laplace-Gauss ou loi Gaussienne,dont la répartition est représentée par la fameuse courbe en cloche.
+        	\section{Définition}
+        	On dit qu'une variable aléatoire continue X suit une loi normale de paramètres $\mu$ et $\sigma^2$ si sa fonction de densité est \\\\$f_X(x)=\frac{1}{\sigma \sqrt{2\pi}}\mathrm{e}^(-(\frac{(x-\mu)^2}{2\sigma^2}))$ pour tout x\\\\
+        	on note $x\sim\emph{N}(\mu,\sigma^2)$
+        	\section{Propriétés}
+        	$\lim_{x \to\infty}f_X(x)$=0\\\\$f_X(\mu + x) = f_X(\mu - x)$\\\\
+        	Si $x\sim\emph{N}(\mu,2)$ alors\\\\$P(X < \mu -x)= P(X > \mu +x)$\\\\ E(X)=$\mu$(espérance) et (variance)V(X)=$\sigma^2$
+        	\newpage
+        	\section{loi normale centrée réduite}
+        	Lorsque $\mu=0\ et\ \sigma=1$,la loi normale est dite \emph{centrée réduite}.
+        	Sa fonction densité est:
+        	  \\\\$\phi(z)$ = $\frac{1}{\sqrt{2\pi}}\mathrm{e}^(-(\frac{x^2}{2}))$ \\\\Si $X\sim\mathcal{N}(\mu,\sigma^2)$ alors\\\\\\Z=$\frac{X-\mu}{\sigma}\sim \mathcal{N}(0,1)$\\\\\\On peut ramener toute loi normale à une loi centrée réduite.
+   
+   \chapter{La loi de Khi Deux}
+      \section{loi de Khi Deux à un degré de liberté }
+            Soit X une variable aléatoire qui suit la loi normale centrée réduite.\\La variable aléatoire définie par:Y=$X^2$ suit la loi de Khi Deux à un degré de liberté.\\Sa densité est \\\\g(x)=$\frac{1}{\sqrt{2\pi}}x^(\frac{-1}{2})\mathrm{e}^(\frac{-x}{2})$ si $x>0$\\\\son espérance est E(Y)=1\\sa variance est V(Y)=2\\
+       \section{loi de khi deux à n degrés de liberté}Soient $T_1,T_2,...,T_n$ ,n variables aléatoires indépendantes suivant toutes la loi normale centrée réduite alors:\\la variable aléatoire X  définie par $X=\sum_{k=1}^{n} (T_k^2)$ suit la loi Khi-Deux de n degrés de liberté.\\\\Sa densité est\\$g(x)=\frac{\frac{1}{2}^(n/2)}{\gamma(\frac{n}{2})}x^(\frac{n-2}{2})\mathrm{e}^(\frac{-x}{2})$\\\\Son espérance est E(X)=n\\\\Sa variance est V(X)=2n.
+      
+ 
+ 
+        	
+        \end{appendices}
+        
+        
+	
+		
+		\end{document}

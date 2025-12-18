@@ -1,0 +1,149 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[margin=2cm]{geometry}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{times}
+\usepackage{colortbl}
+\usepackage{hyperref}
+\newcommand{\chap}[1]{\chapter*{\textcolor{PineGreen!60!Gray}{\textbf{#1}}}} 
+\newcommand{\nouv}[1]{\section*{{\textcolor{RawSienna}{\textbf{#1}}}}} 
+\newcommand{\p}[1]{\paragraph{}}                           
+\usepackage{inputenc}
+\usepackage{amsmath,amsfonts}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{multirow}
+\renewcommand{\arraystretch}{2.3}
+\begin{document}
+\begin{titlepage}
+	\begin{center}
+		\textbf{\LARGE Université d'Antananarivo}\\[0,5cm]
+		\text{\Large Domaine Sciences et téchnologies }\\ [0.5cm]
+		{\large Mention Mathématiques et Informatique}
+		\\[8cm]
+		{\LARGE \textcolor{OliveGreen}{\textbf{Dosage de l'acide éthano\"ique.}}}
+		\\[5cm]
+		\Large\textit{présenté par} Mija Niaina ANDRINAJORO
+	\end{center}	
+\end{titlepage}
+\chap{Le but de l'expérience:}
+\p{}Le but de l'expérience était de déterminer la concentration d'une solution d' acide éthano\"ique  en la faisant réagir avec une solution d'hydroxyde de sodium de concentration connue. ( C'est un exercice proposé dans \cite{Arnaud}).
+\chap{Matériaux et méthodes:}
+\nouv{Matériaux et réactifs utilisés.}
+\p{	}On a utilisé un pH-mètre,une burette graduée, un bécher et un agitateur magnétique.Ils sont illustrés dans la figure ci-dessous.\\
+\begin{figure}[h]
+	\begin{center}
+		\leavevmode
+		\subfloat[bécher]{
+		\includegraphics[width=5cm]{bécher}}
+	 	\hspace{5cm}
+	    \subfloat[burette]{
+	    \includegraphics[width=5cm]{burette}} \\
+        \subfloat[pH-mètre]{\includegraphics[width=5cm]{ph}}
+        \hspace{5cm}
+        \subfloat[agitateur magnétique ]{\includegraphics[width=5cm]{agit}}
+        \caption{Les matériaux utilisés}
+    \end{center}
+\end{figure}
+\p{}La solution d'acide éthano\"ique ($CH_3COOH$) était de volume $V_A=20mL$ et de concentration $C_A$ inconnue ; et l'hydroxyde de sodium ($Na_++OH^-$) de concentration $C_B=20mol.L^{-1}$ .
+ \begin{figure}[h]
+ 	\begin{center}
+ 		\leavevmode
+ 		\subfloat[Acide éthano\"ique]{
+ 		\includegraphics[width=5cm]{acide}}
+ 		\hspace{5cm}
+ 		\subfloat[ Hydroxyde de sodium]{
+ 		\includegraphics[width=5cm]{hydro}}
+ 		\caption{Les réactifs utilisés}
+ 	\end{center}
+ \end{figure}
+ \nouv{Modes opératoires:}
+ \p{} On introduit dans le bécher la solution d'acide éthano\"ique,puis on lui ajoute progressivement à l'aide de la burette la solution d'hydroxyde de sodium tout en utilisant le système d'agitation afin d'homogénéiser le mélange.
+ \paragraph{}
+ On mesure le pH après chaque addition.
+ 
+ \begin{figure}[h]
+ 	\centering
+ 	\includegraphics[width=8cm]{exp}
+ 	\caption{schéma de l'expérience. }
+ \end{figure}
+ \chap{Exploitations des résultats.}
+ \nouv{Tableau récapitulatifs et courbe représentant la variation du pH aprés chaque addition:}
+ 	\setlength\arrayrulewidth{0.5mm}
+ \begin{tabular}{*{18}{|c}}
+ 	\hline 
+    \rowcolor{Melon}
+ 	$V_B(mL)$ & 0 & 2 & 4 & 8 & 10 & 12 & 14 & 14.5 & 15&15.5 & 16 & 18 & 20 & 24 & 26 & 30\\
+ 	\hline
+ 	\rowcolor{Apricot}
+ 	pH&2,9 & 3,4 & 3, 6 & 3,9 & 4,1 & 4,5 & 5 & 5,8 & 7,6 & 10 & 11 & 11,3& 11,4 & 11,5 & 11,6 & 11.7\\
+ 	\hline
+ \end{tabular}
+\p{}Voici la tracée du courbe :
+ \begin{figure}[h]
+	\centering
+	\includegraphics[width=20cm]{cour}
+	\caption{courbe $f(V_B)=pH$.}
+\end{figure}
+\nouv{Détermination du point d'équivalence:}
+\p{}On trace la droite $(\Delta)$ tangente à la courbe au point $A$ et on trace la droite $(\Delta ^{\prime})$ parallèle à $(\Delta)$ passant par le point $B$
+,puis on représente le segment $[H,H^{\prime} ]$ perpendiculaire à $(\Delta)$ et $(\Delta ^{\prime})$.
+\p{}Ensuite on trace la droite $(\Delta^{\prime \prime})$ médiatrice du segment $[H,H^{\prime}]$.
+Cette dernière se coupe avec la courbe $pH=f(V_B) $ au point $E$.\\
+Coordonnées du point d'équivalence $E$ : $V_{BE}=15mL$ ; $pH_E=7.8$
+\nouv{Relation d'équivalence:}
+\p{}Avant l'équivalence, $0H^- $ est le réactif limitant, après l'équivalence ça devient le $CH_3COOH$.\\(cf \cite{Bendaoud}).
+La relation d'équivalence est donc:
+$$C_A.V_A=C_B.V_{BE}$$
+Ainsi on a: 
+
+$$C_A = \frac{C_B.V_{BE}}{V_A}= \frac{O,02.15.10^{-3}}{20.10^{-3}}= 1,5.10^{-3}mol.L^{-1}$$
+\nouv{Détermination du taux d'avancement final de la réaction. }
+\p{}Traçons le tableau d'avancement de la réaction au moment de versement du volume $V_{B versé}=10mL$ de soude. d'après la courbe , le pH correspondant à ce volume est de $pH=4,1$.\\
+Calculons d'abord les quantités de matières à l'état initial:\\
+\begin{align*}
+	n_0(CH_3COOH) &= C_A.V_A\\
+	              &=0,015.0,02\\
+	              &=3.10^{-4} mol\\
+	     n_0(OH^-)&=n_{versé}(OH^-)=C_B.V_{B versé}\\
+	              &=0,02.0,01\\
+	              &=2.10^{-4} mol
+\end{align*}
+\begin{tabular}{*{7}{|c}}
+	\hline
+	\multicolumn{2}{|c|}{\textbf{Équation de la réaction}}& \multicolumn{4}{c|}
+	{ $H_3COOH      +     OH^-   \rightarrow HCOO^- + H_2O $}\\ \hline
+	Les états & Avancement &\multicolumn{4}{c|}{Quantité de la matière en mmol}\\ \hline
+	E.I& $0$ & $ 0,3$ &$ 0,2$ \  &$ O$& excès \\ \hline
+	E.T& x & $0,3-x $& $0,2-x $&$x$ &excès\\ \hline
+	E.Éq&$x_{éq}$&$0,3-x_f$&$0,2-x_f$&$x_f$& excès \\ \hline
+\end{tabular}
+ \p{}$OH^-$ est le réactif limitant et $x_{max}=0,2mmol$.\\
+ À partir de l'état final qui correspond au $pH=4,1$ et $[H_3O^+]=10^{-4,1}mol.L^{-1}$ , on obtient le produit ionique de l'eau:
+ \begin{align*}
+ 	{[H_3O^+]}_f \times {[OH^-]}_f &=10^{-14}\\
+ 	\intertext{Donc, on a:}
+ 					   	{[OH^-]}_f&=\frac{ 10^{-14}}{{[H_3O^+]}_f}\\
+ 								  &=10^{-14+4,1}\\
+ 							    	&=10^{-9,9}mol.L^{-1}
+ 	\intertext{ Ainsi la quantité  de $OH^-$ final est de:}
+ 						n_f(OH^-)&={[OH^-]}_f . V_S\\
+ 	       						 &=10^{-9,9}.(10+20);10^{-3}\\
+ 	       						 &=3.10^{-11,9}mol
+ 	 \intertext{ D'après le tableau d'avancement, on a : }
+ 	 					  0,2-x_f&=n_f(OH^-)\\
+ 								 &=3.10^{-11,9} mol= 3.10^{-8,9}mmol
+ 	 \intertext{ D'o\'u\:}
+ 							  x_f&=0,2mmol
+\end{align*}
+Alors le taux d'avancement final est :
+$$\tau=\frac{x_f}{x_{max}}=\frac{0,2}{0,2}=1.$$
+\chap{Conclusion:}
+\p{}On a trouvé que la concentration de la solution de l'acide éthano\"ique est $C_A=1,5.10^{-2}mol.L^{-1}$. \\
+La réaction du dosage est totale car le taux d'avancement est égale à $1$.
+\bibliographystyle{plain}
+\bibliography{chimie}
+\cite{Arnaud}
+\cite{Bendaoud}
+\end{document}
