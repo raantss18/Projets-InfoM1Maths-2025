@@ -6,6 +6,7 @@ Analyse comparative de 8 modèles de classification (Régression Logistique, Arb
 
 ## Fichiers
 - `Audit_Risk.ipynb` : Notebook Jupyter contenant tout le code d'analyse
+- `audit_data.csv` : Jeu de données "Audit Risk" depuis Kaggle
 - `rapport_audit_risk.pdf` : Rapport détaillé des résultats et analyses
 
 ## Données
