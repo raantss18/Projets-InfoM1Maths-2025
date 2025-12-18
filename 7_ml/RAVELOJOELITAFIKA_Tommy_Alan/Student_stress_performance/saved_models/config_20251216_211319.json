@@ -1,0 +1,13 @@
+{
+  "timestamp": "20251216_211319",
+  "dataset_info": {
+    "file_path": "Student Mental Health Analysis During Online Learning.csv",
+    "samples": 1000,
+    "features": 9,
+    "targets": {
+      "stress_target": "Stress Level",
+      "academic_target": "Academic Performance Change"
+    }
+  },
+  "preprocessing_info": {
+    "missing_values_handled": 

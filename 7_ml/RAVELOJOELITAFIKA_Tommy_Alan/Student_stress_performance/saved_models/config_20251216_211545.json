@@ -1,0 +1,20 @@
+{
+  "timestamp": "20251216_211545",
+  "dataset_info": {
+    "file_path": "Student Mental Health Analysis During Online Learning.csv",
+    "samples": 1000,
+    "features": 9,
+    "targets": {
+      "stress_target": "Stress Level",
+      "academic_target": "Academic Performance Change"
+    }
+  },
+  "preprocessing_info": {
+    "missing_values_handled": false,
+    "categorical_features_processed": 5
+  },
+  "best_models": {
+    "stress": "Naive Bayes",
+    "academic": "XGBoost"
+  }
+}
