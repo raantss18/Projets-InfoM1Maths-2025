@@ -19,13 +19,13 @@ Le modèle **AdaBoost** obtient les meilleures performances avec un score parfai
 
 ```
 .
+├── Comparaison_performence_8_ML/        # Dossier du rapport
 ├── credit_card_fraud_10k.csv          # Jeu de données (10 000 transactions)
 ├── model_comparison_results_sklearn.csv # Résultats détaillés des modèles
 ├── performance.ipynb                  # Notebook Jupyter complet (analyse, entraînement, visualisation)
-├── images/
-│   ├── importance_des_features_adaboost.png     # Importance des features (AdaBoost)
-│   ├── comparaison_des_performances_des_modeles.png # Comparaison multi-métriques
-│   └── radar_chart_top_3_modeles.png            # Radar chart des 3 meilleurs modèles
+├── importance_des_features_adaboost.png     # Importance des features (AdaBoost)
+├── comparaison_des_performances_des_modeles.png # Comparaison multi-métriques
+├── radar_chart_top_3_modeles.png            # Radar chart des 3 meilleurs modèles
 ├── rapport_analyse_fraude.pdf         # Rapport complet au format PDF (optionnel)
 └── README.md                          # Ce fichier
 ```
