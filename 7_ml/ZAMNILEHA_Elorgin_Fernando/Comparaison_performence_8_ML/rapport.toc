@@ -1,0 +1,21 @@
+\babel@toc {french}{}\relax 
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {section}{\numberline {2}Analyse et Nettoyage des Données}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Description des Données}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Statistiques Descriptives}{2}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Nettoyage des Données}{3}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Importance des Features (AdaBoost)}{3}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Comparaison des 8 Modèles}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Résultats des Modèles}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Visualisation de la Comparaison}{5}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Discussion de Chaque Résultat}{6}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Logistic Regression}{6}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Decision Tree}{6}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Random Forest}{6}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Gradient Boosting}{6}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}AdaBoost}{6}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Extra Trees}{6}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}SVM}{6}{subsection.4.7}%
+\contentsline {subsection}{\numberline {4.8}K-Nearest Neighbors}{6}{subsection.4.8}%
+\contentsline {section}{\numberline {5}Validation Additionnelle}{7}{section.5}%
+\contentsline {section}{\numberline {6}Conclusion}{7}{section.6}%
