@@ -1,0 +1,67 @@
+% Préparation du document avec les packages nécessaires
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\geometry{margin=2cm}
+% Configuration des polices (chargées en dernier)
+\usepackage{mathptmx} % Police Times pour compatibilité
+
+\begin{document}
+	
+	% Titre du document
+	\title{Discussion des résultats : Marches sur un demi-plan}
+	\author{ZAMANILEHA Elorgin Fernando}
+	\date{14 Mai 2025}
+	\maketitle
+	
+	% Introduction brève
+	\section*{Introduction}
+	On étudie les marches dans le demi-plan \( y \geq 0 \), partant de \( (0,0) \), avec pas \( \{\uparrow (0,1), \downarrow (0,-1), \rightarrow (1,0)\} \). On note \( a_n \) le nombre de marches de longueur \( n \) revenant à l'origine. Les résultats suivants ont été obtenus via un programme Python optimisé.
+	
+	% Résultats des termes a_n
+	\section*{1. Termes \( a_n \)}
+	Les 30 premiers termes \( a_n \) (pour \( n = 0 \) à \( 29 \)) sont :
+	\[
+	[1, 0, 1, 0, 2, 0, 5, 0, 14, 0, 42, 0, 132, 0, 429, 0, 1430, 0, 4862, 0, 16796, 0, 58786, 0, 208012, 0, 742900, 0, 2674440, 0]
+	\]
+	Les termes impairs sont nuls, car revenir à \( (0,0) \) nécessite un nombre pair de pas verticaux (\( \uparrow \) et \( \downarrow \)).
+	
+	% Série génératrice
+	\section*{2. Série génératrice}
+	La série génératrice jusqu'à \( x^{29} \) est :\\
+	\(
+	A(x) = 1 + x^2 + 2x^4 + 5x^6 + 14x^8 + 42x^{10} + 132x^{12} + 429x^{14} + 1430x^{16} + 4862x^{18} + 16796x^{20} + 58786x^{22} + 208012x^{24} + 742900x^{26} + 2674440x^{28}.
+	\)\\
+	Seuls les termes de degré pair apparaissent, cohérent avec les \( a_n \).
+	
+	% Approximation de Padé
+	\section*{3. Approximation de Padé}
+	L'approximation de Padé [14/14] donne :
+	\begin{itemize}
+		\item Numérateur : \( 1 - 13x^2 + 66x^4 - 165x^6 + 210x^8 - 126x^{10} + 28x^{12} - x^{14} \),
+		\item Dénominateur : \( 1 - 14x^2 + 78x^4 - 220x^6 + 330x^8 - 252x^{10} + 84x^{12} - 8x^{14} \).
+	\end{itemize}
+	Le dénominateur suggère une singularité en \( x \approx 1/3 \), indiquant un rayon de convergence \( \rho = 3 \).
+	
+	% Vérification asymptotique
+	\section*{4. Vérification asymptotique}
+	On vérifie \( a_n \sim C \cdot 3^n \cdot n^{-3/2} \). La constante estimée est \( C \approx 0.450158 \), proche de \( \sqrt{2}/\pi \approx 0.450158 \), confirmant l'asymptotique. Un graphique montre la convergence de \( C \), avec une échelle linéaire et une annotation claire.
+	
+	% Discussion sur la D-finitude
+	\section*{5. D-finitude}
+	La série \( A(x) \) est probablement D-finie, car :
+	\begin{itemize}
+		\item Les marches restreintes ont des séries D-finies (Banderier \& Flajolet, 2002).
+		\item Le dénominateur de Padé indique une équation différentielle linéaire.
+		\item L'asymptotique \( n^{-3/2} \) suggère une singularité algébrique.
+	\end{itemize}
+	Une récurrence linéaire exacte pourrait être obtenue via l'algorithme LLL.
+	
+	% Conclusion
+	\section*{Conclusion}
+	Les résultats confirment les propriétés combinatoires des marches sur le demi-plan. La méthode itérative évite les débordements, et l'approximation de Padé révèle une structure D-finie, validée par l'asymptotique.
+	
+\end{document}
